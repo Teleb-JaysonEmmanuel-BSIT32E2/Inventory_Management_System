@@ -661,11 +661,12 @@ Partial Class frmManageSupplier
         'lblSupplierID
         '
         Me.lblSupplierID.AutoSize = True
-        Me.lblSupplierID.Location = New System.Drawing.Point(997, 22)
+        Me.lblSupplierID.Location = New System.Drawing.Point(1005, 22)
         Me.lblSupplierID.Name = "lblSupplierID"
         Me.lblSupplierID.Size = New System.Drawing.Size(39, 13)
         Me.lblSupplierID.TabIndex = 87
         Me.lblSupplierID.Text = "Label3"
+        Me.lblSupplierID.Visible = False
         '
         'Panel20
         '
