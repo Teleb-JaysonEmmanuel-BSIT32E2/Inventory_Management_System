@@ -5,6 +5,7 @@
         pnlDashboard.Controls.Add(frmDataAnalytics)
         frmDataAnalytics.BringToFront()
         frmDataAnalytics.Show()
+        Call connection()
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
