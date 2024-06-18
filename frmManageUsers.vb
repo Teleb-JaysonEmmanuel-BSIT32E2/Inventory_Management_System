@@ -29,6 +29,10 @@ Public Class frmManageUsers
         End Try
     End Sub
 
+    Public Sub Activity()
+        Call loadActivity()
+    End Sub
+
     Private Sub loadActivity()
         Try
             sql = "Select * from tblActivity"
@@ -40,6 +44,7 @@ Public Class frmManageUsers
             Do While dr.Read()
                 x = New ListViewItem(dr("Username").ToString())
                 x.SubItems.Add(dr("Activity").ToString())
+                x.SubItems.Add(dr("Details").ToString())
                 x.SubItems.Add(dr("ActivityTime").ToString())
                 x.SubItems.Add(dr("ActivityDate").ToString())
                 x.SubItems.Add(dr("ActivityID").ToString())
@@ -213,7 +218,7 @@ Public Class frmManageUsers
     End Sub
 
     Public Function SearchDatabase(searchTerm As String) As DataTable
-        sql = "Select Username, Activity, ActivityTime, ActivityDate, ActivityID from tblActivity where Username LIKE ?"
+        sql = "Select Username, Activity, Details, ActivityTime, ActivityDate, ActivityID from tblActivity where Username LIKE ?"
         cmd = New OleDbCommand(sql, cn)
         cmd.Parameters.Add(New OleDbParameter("searchTerm1", "%" & searchTerm & "%"))
 
