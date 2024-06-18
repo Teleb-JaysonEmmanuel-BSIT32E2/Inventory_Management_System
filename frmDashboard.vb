@@ -50,10 +50,11 @@
     End Sub
 
     Private Sub btnPOS_Click(sender As Object, e As EventArgs) Handles btnPOS.Click
-        frmPOSAdmin.TopLevel = False
-        pnlDashboard.Controls.Add(frmPOSAdmin)
-        frmPOSAdmin.BringToFront()
-        frmPOSAdmin.Show()
+        frmPOS.Show()
+        'frmPOSAdmin.TopLevel = False
+        'pnlDashboard.Controls.Add(frmPOSAdmin)
+        'frmPOSAdmin.BringToFront()
+        'frmPOSAdmin.Show()
     End Sub
 
     Private Sub btnNotif_Click(sender As Object, e As EventArgs) Handles btnNotif.Click

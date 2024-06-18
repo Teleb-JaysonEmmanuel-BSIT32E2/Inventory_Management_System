@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmPOSCashier
+Partial Class frmPOS
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -193,7 +193,7 @@ Partial Class frmPOSCashier
         Me.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlBody.Location = New System.Drawing.Point(0, 50)
         Me.pnlBody.Name = "pnlBody"
-        Me.pnlBody.Size = New System.Drawing.Size(1366, 718)
+        Me.pnlBody.Size = New System.Drawing.Size(1366, 699)
         Me.pnlBody.TabIndex = 3
         '
         'txtQuantity
@@ -244,7 +244,7 @@ Partial Class frmPOSCashier
         Me.Panel7.Controls.Add(Me.Panel10)
         Me.Panel7.Controls.Add(Me.Panel8)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel7.Location = New System.Drawing.Point(0, 683)
+        Me.Panel7.Location = New System.Drawing.Point(0, 664)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(1366, 35)
         Me.Panel7.TabIndex = 91
@@ -901,16 +901,17 @@ Partial Class frmPOSCashier
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'frmPOSCashier
+        'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1366, 768)
+        Me.ClientSize = New System.Drawing.Size(1366, 749)
         Me.Controls.Add(Me.pnlBody)
         Me.Controls.Add(Me.Panel5)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmPOSCashier"
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Name = "frmPOS"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.pnlBody.ResumeLayout(False)

@@ -114,6 +114,12 @@
     <Compile Include="frmDataAnalytics.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmListSuppliers.Designer.vb">
+      <DependentUpon>frmListSuppliers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListSuppliers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -163,10 +169,10 @@
     <Compile Include="frmPOSAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPOSCashier.Designer.vb">
-      <DependentUpon>frmPOSCashier.vb</DependentUpon>
+    <Compile Include="frmPOS.Designer.vb">
+      <DependentUpon>frmPOS.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPOSCashier.vb">
+    <Compile Include="frmPOS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegister.Designer.vb">
@@ -205,6 +211,9 @@
     <EmbeddedResource Include="frmDataAnalytics.resx">
       <DependentUpon>frmDataAnalytics.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListSuppliers.resx">
+      <DependentUpon>frmListSuppliers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -229,8 +238,8 @@
     <EmbeddedResource Include="frmPOSAdmin.resx">
       <DependentUpon>frmPOSAdmin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPOSCashier.resx">
-      <DependentUpon>frmPOSCashier.vb</DependentUpon>
+    <EmbeddedResource Include="frmPOS.resx">
+      <DependentUpon>frmPOS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.vb</DependentUpon>
