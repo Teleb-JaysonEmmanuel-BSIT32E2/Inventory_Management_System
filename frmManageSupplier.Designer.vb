@@ -70,6 +70,7 @@ Partial Class frmManageSupplier
         Me.Panel31 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel19 = New System.Windows.Forms.Panel()
+        Me.lblSupplierID = New System.Windows.Forms.Label()
         Me.Panel20 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel21 = New System.Windows.Forms.Panel()
@@ -132,7 +133,6 @@ Partial Class frmManageSupplier
         '
         'ListView1
         '
-        Me.ListView1.CheckBoxes = True
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
@@ -650,12 +650,22 @@ Partial Class frmManageSupplier
         'Panel19
         '
         Me.Panel19.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel19.Controls.Add(Me.lblSupplierID)
         Me.Panel19.Controls.Add(Me.Panel20)
         Me.Panel19.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel19.Location = New System.Drawing.Point(0, 0)
         Me.Panel19.Name = "Panel19"
         Me.Panel19.Size = New System.Drawing.Size(1071, 50)
         Me.Panel19.TabIndex = 1
+        '
+        'lblSupplierID
+        '
+        Me.lblSupplierID.AutoSize = True
+        Me.lblSupplierID.Location = New System.Drawing.Point(997, 22)
+        Me.lblSupplierID.Name = "lblSupplierID"
+        Me.lblSupplierID.Size = New System.Drawing.Size(39, 13)
+        Me.lblSupplierID.TabIndex = 87
+        Me.lblSupplierID.Text = "Label3"
         '
         'Panel20
         '
@@ -802,6 +812,7 @@ Partial Class frmManageSupplier
         Me.Panel38.ResumeLayout(False)
         Me.Panel34.ResumeLayout(False)
         Me.Panel19.ResumeLayout(False)
+        Me.Panel19.PerformLayout()
         Me.Panel20.ResumeLayout(False)
         Me.Panel20.PerformLayout()
         Me.ResumeLayout(False)
@@ -865,4 +876,5 @@ Partial Class frmManageSupplier
     Friend WithEvents Label9 As Label
     Friend WithEvents txtAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtSupplierName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblSupplierID As Label
 End Class
