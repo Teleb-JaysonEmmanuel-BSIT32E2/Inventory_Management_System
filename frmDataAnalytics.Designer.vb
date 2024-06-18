@@ -39,15 +39,12 @@ Partial Class frmDataAnalytics
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblTotalRevenue = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblProductSold = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
-        Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -76,7 +73,7 @@ Partial Class frmDataAnalytics
         '
         'ListView1
         '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.ListView1.GridLines = True
@@ -90,12 +87,12 @@ Partial Class frmDataAnalytics
         '
         'ColumnHeader1
         '
-        Me.ColumnHeader1.Text = "Rank"
-        Me.ColumnHeader1.Width = 100
+        Me.ColumnHeader1.Text = "Product Name"
+        Me.ColumnHeader1.Width = 200
         '
         'ColumnHeader9
         '
-        Me.ColumnHeader9.Text = "Product Name"
+        Me.ColumnHeader9.Text = "Description"
         Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.ColumnHeader9.Width = 220
         '
@@ -149,9 +146,9 @@ Partial Class frmDataAnalytics
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(10, 15)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(232, 26)
+        Me.Label4.Size = New System.Drawing.Size(202, 26)
         Me.Label4.TabIndex = 72
-        Me.Label4.Text = "Top 10 Sold Products"
+        Me.Label4.Text = "Top Sold Products"
         '
         'Guna2Panel3
         '
@@ -160,18 +157,18 @@ Partial Class frmDataAnalytics
         Me.Guna2Panel3.Controls.Add(Me.Label1)
         Me.Guna2Panel3.Location = New System.Drawing.Point(12, 16)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Size = New System.Drawing.Size(330, 140)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(521, 140)
         Me.Guna2Panel3.TabIndex = 2
         '
         'lblSoldProducts
         '
         Me.lblSoldProducts.AutoSize = True
         Me.lblSoldProducts.BackColor = System.Drawing.Color.Transparent
-        Me.lblSoldProducts.Font = New System.Drawing.Font("Arial", 25.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSoldProducts.Font = New System.Drawing.Font("Arial", 35.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSoldProducts.ForeColor = System.Drawing.Color.White
-        Me.lblSoldProducts.Location = New System.Drawing.Point(49, 70)
+        Me.lblSoldProducts.Location = New System.Drawing.Point(92, 57)
         Me.lblSoldProducts.Name = "lblSoldProducts"
-        Me.lblSoldProducts.Size = New System.Drawing.Size(224, 40)
+        Me.lblSoldProducts.Size = New System.Drawing.Size(303, 55)
         Me.lblSoldProducts.TabIndex = 74
         Me.lblSoldProducts.Text = "XXXXXXXXX"
         '
@@ -179,11 +176,11 @@ Partial Class frmDataAnalytics
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(13, 18)
+        Me.Label1.Location = New System.Drawing.Point(15, 15)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(157, 26)
+        Me.Label1.Size = New System.Drawing.Size(232, 37)
         Me.Label1.TabIndex = 73
         Me.Label1.Text = "Sold Products"
         '
@@ -192,20 +189,20 @@ Partial Class frmDataAnalytics
         Me.Guna2Panel4.BackColor = System.Drawing.Color.SeaGreen
         Me.Guna2Panel4.Controls.Add(Me.lblTotalRevenue)
         Me.Guna2Panel4.Controls.Add(Me.Label6)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(365, 16)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(562, 16)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(347, 140)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(521, 140)
         Me.Guna2Panel4.TabIndex = 76
         '
         'lblTotalRevenue
         '
         Me.lblTotalRevenue.AutoSize = True
         Me.lblTotalRevenue.BackColor = System.Drawing.Color.Transparent
-        Me.lblTotalRevenue.Font = New System.Drawing.Font("Arial", 25.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalRevenue.Font = New System.Drawing.Font("Arial", 35.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalRevenue.ForeColor = System.Drawing.Color.White
-        Me.lblTotalRevenue.Location = New System.Drawing.Point(68, 70)
+        Me.lblTotalRevenue.Location = New System.Drawing.Point(127, 57)
         Me.lblTotalRevenue.Name = "lblTotalRevenue"
-        Me.lblTotalRevenue.Size = New System.Drawing.Size(224, 40)
+        Me.lblTotalRevenue.Size = New System.Drawing.Size(303, 55)
         Me.lblTotalRevenue.TabIndex = 74
         Me.lblTotalRevenue.Text = "XXXXXXXXX"
         '
@@ -213,54 +210,25 @@ Partial Class frmDataAnalytics
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(13, 18)
+        Me.Label6.Location = New System.Drawing.Point(19, 15)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(159, 26)
+        Me.Label6.Size = New System.Drawing.Size(233, 37)
         Me.Label6.TabIndex = 73
         Me.Label6.Text = "Total Revenue"
         '
-        'Guna2Panel2
+        'ColumnHeader2
         '
-        Me.Guna2Panel2.BackColor = System.Drawing.Color.SeaGreen
-        Me.Guna2Panel2.Controls.Add(Me.lblProductSold)
-        Me.Guna2Panel2.Controls.Add(Me.Label7)
-        Me.Guna2Panel2.Location = New System.Drawing.Point(734, 16)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(347, 140)
-        Me.Guna2Panel2.TabIndex = 76
-        '
-        'lblProductSold
-        '
-        Me.lblProductSold.AutoSize = True
-        Me.lblProductSold.BackColor = System.Drawing.Color.Transparent
-        Me.lblProductSold.Font = New System.Drawing.Font("Arial", 25.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductSold.ForeColor = System.Drawing.Color.White
-        Me.lblProductSold.Location = New System.Drawing.Point(68, 70)
-        Me.lblProductSold.Name = "lblProductSold"
-        Me.lblProductSold.Size = New System.Drawing.Size(224, 40)
-        Me.lblProductSold.TabIndex = 74
-        Me.lblProductSold.Text = "XXXXXXXXX"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(13, 18)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(145, 26)
-        Me.Label7.TabIndex = 73
-        Me.Label7.Text = "Product Sold"
+        Me.ColumnHeader2.Text = "Total Quantiy Sold"
+        Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader2.Width = 200
         '
         'frmDataAnalytics
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1095, 623)
-        Me.Controls.Add(Me.Guna2Panel2)
         Me.Controls.Add(Me.Guna2Panel4)
         Me.Controls.Add(Me.Guna2Panel3)
         Me.Controls.Add(Me.Guna2Panel1)
@@ -275,8 +243,6 @@ Partial Class frmDataAnalytics
         Me.Guna2Panel3.PerformLayout()
         Me.Guna2Panel4.ResumeLayout(False)
         Me.Guna2Panel4.PerformLayout()
-        Me.Guna2Panel2.ResumeLayout(False)
-        Me.Guna2Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -298,7 +264,5 @@ Partial Class frmDataAnalytics
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblTotalRevenue As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblProductSold As Label
-    Friend WithEvents Label7 As Label
+    Friend WithEvents ColumnHeader2 As ColumnHeader
 End Class
