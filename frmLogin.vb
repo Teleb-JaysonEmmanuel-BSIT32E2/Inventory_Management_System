@@ -56,6 +56,7 @@ Public Class frmLogin
                         Me.Hide()
                     Else
                         frmDashboard.lblUsername.Text = Me.txtUsername.Text
+                        frmDashboard.lblRole.Text = Me.lblRole.Text
                         frmDashboard.Show()
                         Me.Hide()
                     End If
@@ -84,11 +85,12 @@ Public Class frmLogin
 
     Private Sub ActivityLogs()
         Try
-            sql = "Insert into tblActivity (Username, Activity, ActivityTime, ActivityDate) values (@Username, @Activity, @ActivityTime, @ActivityDate)"
+            sql = "Insert into tblActivity (Username, Activity, Details, ActivityTime, ActivityDate) values (@Username, @Activity, @Details, @ActivityTime, @ActivityDate)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@Username", txtUsername.Text)
                 .Parameters.AddWithValue("@Activity", "Login")
+                .Parameters.AddWithValue("@Details", "Login")
                 .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("HH:mm:ss"))
                 .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .ExecuteNonQuery()

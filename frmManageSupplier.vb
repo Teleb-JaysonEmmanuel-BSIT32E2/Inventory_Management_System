@@ -96,7 +96,7 @@ Public Class frmManageSupplier
                 .ExecuteNonQuery()
             End With
             MsgBox("Successfully created!", MsgBoxStyle.Information)
-            Call ActivityLogs("Insert Supplier Info")
+            Call ActivityLogs("Insert Supplier Info", txtSupplierName.Text)
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(insertSupplier): " & ex.Message)
         End Try
@@ -115,7 +115,7 @@ Public Class frmManageSupplier
                 .ExecuteNonQuery()
             End With
             MsgBox("Successfully updated!", MsgBoxStyle.Information)
-            Call ActivityLogs("Update Supplier Info")
+            Call ActivityLogs("Update Supplier Info", txtSupplierName.Text)
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(updateSupplier): " & ex.Message)
         End Try
@@ -136,6 +136,7 @@ Public Class frmManageSupplier
             MsgBox("An error occurred frmManageSupplier(btnSave): " & ex.Message)
         End Try
         Call loadSuppliers()
+        Call frmManageUsers.Activity()
         Call clearThings()
         Call disableThings()
         Call startThings()
@@ -150,6 +151,23 @@ Public Class frmManageSupplier
         btnDelete.Enabled = True
         btnCancel.Enabled = True
         btnNew.Enabled = False
+    End Sub
+
+    Private Sub lblSupplierID_TextChanged(sender As Object, e As EventArgs) Handles lblSupplierID.TextChanged
+        Try
+            sql = "Select SupplierName, ContactPerson, Email, Address, SupplierID from tblSuppliers where SupplierID = @SupplierID"
+            cmd = New OleDbCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@SupplierID", lblSupplierID.Text)
+            dr = cmd.ExecuteReader
+            If dr.Read = True Then
+                txtSupplierName.Text = dr(0).ToString()
+                txtContactPerson.Text = dr(1).ToString()
+                txtEmail.Text = dr(2).ToString()
+                txtAddress.Text = dr(3).ToString()
+            End If
+        Catch ex As Exception
+            MsgBox("An error occurred frmManageSupplier(lblSupplierID_TextChanged): " & ex.Message)
+        End Try
     End Sub
 
     Private Sub txtSearchSupplierName_TextChanged(sender As Object, e As EventArgs) Handles txtSearchSupplierName.TextChanged
@@ -187,42 +205,26 @@ Public Class frmManageSupplier
                     .ExecuteNonQuery()
                 End With
                 MsgBox("Record Deleted!")
-                Call ActivityLogs("Delete Supplier Info")
+                Call ActivityLogs("Delete Supplier Info", txtSupplierName.Text)
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(btnDelete_TextChanged): " & ex.Message)
         End Try
         Call clearThings()
         Call loadSuppliers()
+        Call frmManageUsers.Activity()
         Call startThings()
         Call disableThings()
     End Sub
 
-
-    Private Sub lblSupplierID_TextChanged(sender As Object, e As EventArgs) Handles lblSupplierID.TextChanged
+    Private Sub ActivityLogs(activity As String, details As String)
         Try
-            sql = "Select SupplierName, ContactPerson, Email, Address, SupplierID from tblSuppliers where SupplierID = @SupplierID"
-            cmd = New OleDbCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@SupplierID", lblSupplierID.Text)
-            dr = cmd.ExecuteReader
-            If dr.Read = True Then
-                txtSupplierName.Text = dr(0).ToString()
-                txtContactPerson.Text = dr(1).ToString()
-                txtEmail.Text = dr(2).ToString()
-                txtAddress.Text = dr(3).ToString()
-            End If
-        Catch ex As Exception
-            MsgBox("An error occurred frmManageSupplier(lblSupplierID_TextChanged): " & ex.Message)
-        End Try
-    End Sub
-
-    Private Sub ActivityLogs(activity As String)
-        Try
-            sql = "INSERT INTO tblActivity (Username, Activity, ActivityTime, ActivityDate) VALUES (@Username, @Activity, @ActivityTime, @ActivityDate)"
+            sql = "INSERT INTO tblActivity (Username, Activity, Details, ActivityTime, ActivityDate) VALUES (@Username, @Activity, @Details, @ActivityTime, @ActivityDate)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@Username", frmDashboard.lblUsername.Text)
                 .Parameters.AddWithValue("@Activity", activity)
+                .Parameters.AddWithValue("@Details", details)
                 .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("HH:mm:ss"))
                 .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .ExecuteNonQuery()

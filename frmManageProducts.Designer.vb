@@ -30,6 +30,7 @@ Partial Class frmManageProducts
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
@@ -47,6 +48,11 @@ Partial Class frmManageProducts
         Me.Panel27 = New System.Windows.Forms.Panel()
         Me.pnlManageProduct = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.lblSupplierID = New System.Windows.Forms.Label()
+        Me.lblProductID = New System.Windows.Forms.Label()
+        Me.btnSearch = New Guna.UI2.WinForms.Guna2Button()
+        Me.txtSupplierName = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.txtDescription = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtStock = New Guna.UI2.WinForms.Guna2TextBox()
@@ -134,7 +140,7 @@ Partial Class frmManageProducts
         '
         'ListView1
         '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.ListView1.GridLines = True
@@ -149,25 +155,31 @@ Partial Class frmManageProducts
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Product Name"
-        Me.ColumnHeader1.Width = 150
+        Me.ColumnHeader1.Width = 210
         '
         'ColumnHeader9
         '
         Me.ColumnHeader9.Text = "Description"
         Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader9.Width = 380
+        Me.ColumnHeader9.Width = 210
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Price"
         Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader2.Width = 200
+        Me.ColumnHeader2.Width = 210
         '
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Stock"
         Me.ColumnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader3.Width = 180
+        Me.ColumnHeader3.Width = 210
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "SupplierName"
+        Me.ColumnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader4.Width = 210
         '
         'Panel8
         '
@@ -331,6 +343,11 @@ Partial Class frmManageProducts
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.White
+        Me.Panel7.Controls.Add(Me.lblSupplierID)
+        Me.Panel7.Controls.Add(Me.lblProductID)
+        Me.Panel7.Controls.Add(Me.btnSearch)
+        Me.Panel7.Controls.Add(Me.txtSupplierName)
+        Me.Panel7.Controls.Add(Me.Label6)
         Me.Panel7.Controls.Add(Me.txtDescription)
         Me.Panel7.Controls.Add(Me.Label5)
         Me.Panel7.Controls.Add(Me.txtStock)
@@ -346,6 +363,78 @@ Partial Class frmManageProducts
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(1071, 297)
         Me.Panel7.TabIndex = 33
+        '
+        'lblSupplierID
+        '
+        Me.lblSupplierID.AutoSize = True
+        Me.lblSupplierID.Location = New System.Drawing.Point(832, 194)
+        Me.lblSupplierID.Name = "lblSupplierID"
+        Me.lblSupplierID.Size = New System.Drawing.Size(39, 13)
+        Me.lblSupplierID.TabIndex = 79
+        Me.lblSupplierID.Text = "Label8"
+        Me.lblSupplierID.Visible = False
+        '
+        'lblProductID
+        '
+        Me.lblProductID.AutoSize = True
+        Me.lblProductID.Location = New System.Drawing.Point(832, 162)
+        Me.lblProductID.Name = "lblProductID"
+        Me.lblProductID.Size = New System.Drawing.Size(39, 13)
+        Me.lblProductID.TabIndex = 78
+        Me.lblProductID.Text = "Label7"
+        Me.lblProductID.Visible = False
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BorderRadius = 8
+        Me.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSearch.Enabled = False
+        Me.btnSearch.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnSearch.ForeColor = System.Drawing.Color.White
+        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
+        Me.btnSearch.Location = New System.Drawing.Point(682, 84)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(45, 36)
+        Me.btnSearch.TabIndex = 77
+        '
+        'txtSupplierName
+        '
+        Me.txtSupplierName.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSupplierName.DefaultText = ""
+        Me.txtSupplierName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSupplierName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSupplierName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSupplierName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSupplierName.Enabled = False
+        Me.txtSupplierName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSupplierName.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.txtSupplierName.ForeColor = System.Drawing.Color.Black
+        Me.txtSupplierName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSupplierName.Location = New System.Drawing.Point(410, 84)
+        Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSupplierName.Name = "txtSupplierName"
+        Me.txtSupplierName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSupplierName.PlaceholderText = "Search supplier name"
+        Me.txtSupplierName.SelectedText = ""
+        Me.txtSupplierName.Size = New System.Drawing.Size(262, 36)
+        Me.txtSupplierName.TabIndex = 76
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.SandyBrown
+        Me.Label6.Location = New System.Drawing.Point(409, 61)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 19)
+        Me.Label6.TabIndex = 75
+        Me.Label6.Text = "Supplier Name"
         '
         'txtDescription
         '
@@ -883,4 +972,10 @@ Partial Class frmManageProducts
     Friend WithEvents Label4 As Label
     Friend WithEvents txtPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents txtSupplierName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents ColumnHeader4 As ColumnHeader
+    Friend WithEvents lblSupplierID As Label
+    Friend WithEvents lblProductID As Label
 End Class

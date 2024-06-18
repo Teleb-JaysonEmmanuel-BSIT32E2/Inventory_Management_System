@@ -61,10 +61,6 @@ Partial Class frmManageUsers
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.ListView3 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.txtSearchUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel18 = New System.Windows.Forms.Panel()
@@ -103,6 +99,11 @@ Partial Class frmManageUsers
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -617,7 +618,7 @@ Partial Class frmManageUsers
         '
         'ListView3
         '
-        Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader13})
         Me.ListView3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.ListView3.GridLines = True
@@ -630,29 +631,6 @@ Partial Class frmManageUsers
         Me.ListView3.TabIndex = 39
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader13
-        '
-        Me.ColumnHeader13.Text = "Username"
-        Me.ColumnHeader13.Width = 260
-        '
-        'ColumnHeader14
-        '
-        Me.ColumnHeader14.Text = "Activity"
-        Me.ColumnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader14.Width = 260
-        '
-        'ColumnHeader15
-        '
-        Me.ColumnHeader15.Text = "Time"
-        Me.ColumnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader15.Width = 260
-        '
-        'ColumnHeader16
-        '
-        Me.ColumnHeader16.Text = "Date"
-        Me.ColumnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader16.Width = 260
         '
         'Panel17
         '
@@ -1042,6 +1020,35 @@ Partial Class frmManageUsers
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
         '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Username"
+        Me.ColumnHeader1.Width = 211
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Activity"
+        Me.ColumnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader8.Width = 211
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Details"
+        Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader9.Width = 211
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "ActivityTime"
+        Me.ColumnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader10.Width = 211
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "ActivityDate"
+        Me.ColumnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader13.Width = 211
+        '
         'frmManageUsers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1130,10 +1137,6 @@ Partial Class frmManageUsers
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Panel16 As Panel
     Friend WithEvents ListView3 As ListView
-    Friend WithEvents ColumnHeader13 As ColumnHeader
-    Friend WithEvents ColumnHeader14 As ColumnHeader
-    Friend WithEvents ColumnHeader15 As ColumnHeader
-    Friend WithEvents ColumnHeader16 As ColumnHeader
     Friend WithEvents Panel17 As Panel
     Friend WithEvents Panel18 As Panel
     Friend WithEvents Panel19 As Panel
@@ -1154,4 +1157,9 @@ Partial Class frmManageUsers
     Friend WithEvents ColumnHeader12 As ColumnHeader
     Friend WithEvents ColumnHeader17 As ColumnHeader
     Friend WithEvents lblUserID As Label
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader8 As ColumnHeader
+    Friend WithEvents ColumnHeader9 As ColumnHeader
+    Friend WithEvents ColumnHeader10 As ColumnHeader
+    Friend WithEvents ColumnHeader13 As ColumnHeader
 End Class
