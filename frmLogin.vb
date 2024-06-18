@@ -52,13 +52,17 @@ Public Class frmLogin
                     MsgBox("Logging In!", MsgBoxStyle.Information)
                     Call ActivityLogs()
                     If lblRole.Text = "Cashier" Then
-                        frmPOSCashier.Show()
+                        frmPOS.lblUsername.Text = Me.txtUsername.Text
+                        frmPOS.Show()
                         Me.Hide()
-                    Else
+                    ElseIf lblRole.Text = "Admin" Then
                         frmDashboard.lblUsername.Text = Me.txtUsername.Text
+                        frmDashboard.lblRole.Text = Me.lblRole.Text
                         frmDashboard.Show()
                         Me.Hide()
                     End If
+                Else
+                    MsgBox("Your username or password are incorrect", vbExclamation, "Invalid credentials")
                 End If
                 'sql = "Select Username, Password from tblUser where Username = @Username and Password = @Password"
                 'cmd = New OleDbCommand(sql, cn)
