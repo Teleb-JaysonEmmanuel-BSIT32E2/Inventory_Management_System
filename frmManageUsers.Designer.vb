@@ -26,6 +26,7 @@ Partial Class frmManageUsers
         Me.TabControl2 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblUserID = New System.Windows.Forms.Label()
         Me.cboRole = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
@@ -35,12 +36,16 @@ Partial Class frmManageUsers
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Panel30 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.btnEdit = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.btnNew = New Guna.UI2.WinForms.Guna2Button()
@@ -50,9 +55,9 @@ Partial Class frmManageUsers
         Me.Panel14 = New System.Windows.Forms.Panel()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.ListView2 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.ListView3 = New System.Windows.Forms.ListView()
@@ -61,6 +66,7 @@ Partial Class frmManageUsers
         Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.txtSearchUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Panel19 = New System.Windows.Forms.Panel()
         Me.Panel20 = New System.Windows.Forms.Panel()
@@ -96,12 +102,7 @@ Partial Class frmManageUsers
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtSearchUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnEdit = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -180,6 +181,7 @@ Partial Class frmManageUsers
         '
         Me.Guna2Panel2.BorderColor = System.Drawing.Color.LightGray
         Me.Guna2Panel2.BorderThickness = 1
+        Me.Guna2Panel2.Controls.Add(Me.lblUserID)
         Me.Guna2Panel2.Controls.Add(Me.cboRole)
         Me.Guna2Panel2.Controls.Add(Me.Label7)
         Me.Guna2Panel2.Controls.Add(Me.txtUsername)
@@ -192,6 +194,16 @@ Partial Class frmManageUsers
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Size = New System.Drawing.Size(1057, 192)
         Me.Guna2Panel2.TabIndex = 24
+        '
+        'lblUserID
+        '
+        Me.lblUserID.AutoSize = True
+        Me.lblUserID.Location = New System.Drawing.Point(955, 66)
+        Me.lblUserID.Name = "lblUserID"
+        Me.lblUserID.Size = New System.Drawing.Size(39, 13)
+        Me.lblUserID.TabIndex = 60
+        Me.lblUserID.Text = "Label8"
+        Me.lblUserID.Visible = False
         '
         'cboRole
         '
@@ -327,6 +339,26 @@ Partial Class frmManageUsers
         Me.Panel1.Size = New System.Drawing.Size(140, 40)
         Me.Panel1.TabIndex = 18
         '
+        'btnDelete
+        '
+        Me.btnDelete.BorderRadius = 8
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnDelete.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnDelete.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnDelete.ForeColor = System.Drawing.Color.White
+        Me.btnDelete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnDelete.Location = New System.Drawing.Point(0, 0)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.PressedDepth = 20
+        Me.btnDelete.Size = New System.Drawing.Size(140, 40)
+        Me.btnDelete.TabIndex = 58
+        Me.btnDelete.Text = "Delete"
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
@@ -345,6 +377,26 @@ Partial Class frmManageUsers
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(140, 40)
         Me.Panel3.TabIndex = 18
+        '
+        'btnCancel
+        '
+        Me.btnCancel.BorderRadius = 8
+        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnCancel.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnCancel.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnCancel.ForeColor = System.Drawing.Color.White
+        Me.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnCancel.Location = New System.Drawing.Point(0, 0)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.PressedDepth = 20
+        Me.btnCancel.Size = New System.Drawing.Size(140, 40)
+        Me.btnCancel.TabIndex = 56
+        Me.btnCancel.Text = "Cancel"
         '
         'Panel4
         '
@@ -365,6 +417,26 @@ Partial Class frmManageUsers
         Me.Panel5.Size = New System.Drawing.Size(140, 40)
         Me.Panel5.TabIndex = 18
         '
+        'btnSave
+        '
+        Me.btnSave.BorderRadius = 8
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSave.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnSave.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnSave.ForeColor = System.Drawing.Color.White
+        Me.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnSave.Location = New System.Drawing.Point(0, 0)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.PressedDepth = 20
+        Me.btnSave.Size = New System.Drawing.Size(140, 40)
+        Me.btnSave.TabIndex = 54
+        Me.btnSave.Text = "Save"
+        '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.White
@@ -383,6 +455,26 @@ Partial Class frmManageUsers
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(140, 40)
         Me.Panel7.TabIndex = 18
+        '
+        'btnEdit
+        '
+        Me.btnEdit.BorderRadius = 8
+        Me.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnEdit.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnEdit.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnEdit.ForeColor = System.Drawing.Color.White
+        Me.btnEdit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnEdit.Location = New System.Drawing.Point(0, 0)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.PressedDepth = 20
+        Me.btnEdit.Size = New System.Drawing.Size(140, 40)
+        Me.btnEdit.TabIndex = 55
+        Me.btnEdit.Text = "Edit"
         '
         'Panel8
         '
@@ -470,13 +562,12 @@ Partial Class frmManageUsers
         '
         'ListView2
         '
-        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader8, Me.ColumnHeader9})
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader17})
         Me.ListView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.ListView2.GridLines = True
         Me.ListView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView2.HideSelection = False
-        Me.ListView2.HoverSelection = True
         Me.ListView2.Location = New System.Drawing.Point(0, 0)
         Me.ListView2.Name = "ListView2"
         Me.ListView2.Size = New System.Drawing.Size(1057, 274)
@@ -484,23 +575,23 @@ Partial Class frmManageUsers
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
         '
-        'ColumnHeader1
+        'ColumnHeader11
         '
-        Me.ColumnHeader1.Text = "Username"
-        Me.ColumnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader1.Width = 180
+        Me.ColumnHeader11.Text = "Username"
+        Me.ColumnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader11.Width = 350
         '
-        'ColumnHeader8
+        'ColumnHeader12
         '
-        Me.ColumnHeader8.Text = "Password"
-        Me.ColumnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader8.Width = 200
+        Me.ColumnHeader12.Text = "Password"
+        Me.ColumnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader12.Width = 350
         '
-        'ColumnHeader9
+        'ColumnHeader17
         '
-        Me.ColumnHeader9.Text = "Role"
-        Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader9.Width = 250
+        Me.ColumnHeader17.Text = "Role"
+        Me.ColumnHeader17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader17.Width = 350
         '
         'TabPage2
         '
@@ -543,25 +634,25 @@ Partial Class frmManageUsers
         'ColumnHeader13
         '
         Me.ColumnHeader13.Text = "Username"
-        Me.ColumnHeader13.Width = 200
+        Me.ColumnHeader13.Width = 260
         '
         'ColumnHeader14
         '
         Me.ColumnHeader14.Text = "Activity"
         Me.ColumnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader14.Width = 250
+        Me.ColumnHeader14.Width = 260
         '
         'ColumnHeader15
         '
         Me.ColumnHeader15.Text = "Time"
         Me.ColumnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader15.Width = 200
+        Me.ColumnHeader15.Width = 260
         '
         'ColumnHeader16
         '
         Me.ColumnHeader16.Text = "Date"
         Me.ColumnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader16.Width = 250
+        Me.ColumnHeader16.Width = 260
         '
         'Panel17
         '
@@ -573,6 +664,28 @@ Partial Class frmManageUsers
         Me.Panel17.Name = "Panel17"
         Me.Panel17.Size = New System.Drawing.Size(1057, 58)
         Me.Panel17.TabIndex = 2
+        '
+        'txtSearchUsername
+        '
+        Me.txtSearchUsername.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearchUsername.DefaultText = ""
+        Me.txtSearchUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSearchUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSearchUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSearchUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSearchUsername.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtSearchUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSearchUsername.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.txtSearchUsername.ForeColor = System.Drawing.Color.Black
+        Me.txtSearchUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.txtSearchUsername.Location = New System.Drawing.Point(0, 10)
+        Me.txtSearchUsername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSearchUsername.Name = "txtSearchUsername"
+        Me.txtSearchUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSearchUsername.PlaceholderText = "Search by username"
+        Me.txtSearchUsername.SelectedText = ""
+        Me.txtSearchUsername.Size = New System.Drawing.Size(295, 31)
+        Me.txtSearchUsername.TabIndex = 47
         '
         'Panel18
         '
@@ -913,28 +1026,6 @@ Partial Class frmManageUsers
         Me.Label5.Size = New System.Drawing.Size(44, 19)
         Me.Label5.TabIndex = 58
         '
-        'txtSearchUsername
-        '
-        Me.txtSearchUsername.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearchUsername.DefaultText = ""
-        Me.txtSearchUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtSearchUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtSearchUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSearchUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSearchUsername.Dock = System.Windows.Forms.DockStyle.Left
-        Me.txtSearchUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSearchUsername.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.txtSearchUsername.ForeColor = System.Drawing.Color.Black
-        Me.txtSearchUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.txtSearchUsername.Location = New System.Drawing.Point(0, 10)
-        Me.txtSearchUsername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtSearchUsername.Name = "txtSearchUsername"
-        Me.txtSearchUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtSearchUsername.PlaceholderText = "Search by username"
-        Me.txtSearchUsername.SelectedText = ""
-        Me.txtSearchUsername.Size = New System.Drawing.Size(295, 31)
-        Me.txtSearchUsername.TabIndex = 47
-        '
         'cboStatus
         '
         Me.cboStatus.BackColor = System.Drawing.Color.Transparent
@@ -950,86 +1041,6 @@ Partial Class frmManageUsers
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
-        '
-        'btnSave
-        '
-        Me.btnSave.BorderRadius = 8
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnSave.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnSave.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnSave.Location = New System.Drawing.Point(0, 0)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.PressedDepth = 20
-        Me.btnSave.Size = New System.Drawing.Size(140, 40)
-        Me.btnSave.TabIndex = 54
-        Me.btnSave.Text = "Save"
-        '
-        'btnCancel
-        '
-        Me.btnCancel.BorderRadius = 8
-        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnCancel.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnCancel.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnCancel.Location = New System.Drawing.Point(0, 0)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.PressedDepth = 20
-        Me.btnCancel.Size = New System.Drawing.Size(140, 40)
-        Me.btnCancel.TabIndex = 56
-        Me.btnCancel.Text = "Cancel"
-        '
-        'btnDelete
-        '
-        Me.btnDelete.BorderRadius = 8
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnDelete.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnDelete.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnDelete.Location = New System.Drawing.Point(0, 0)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.PressedDepth = 20
-        Me.btnDelete.Size = New System.Drawing.Size(140, 40)
-        Me.btnDelete.TabIndex = 58
-        Me.btnDelete.Text = "Delete"
-        '
-        'btnEdit
-        '
-        Me.btnEdit.BorderRadius = 8
-        Me.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnEdit.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnEdit.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnEdit.ForeColor = System.Drawing.Color.White
-        Me.btnEdit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnEdit.Location = New System.Drawing.Point(0, 0)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.PressedDepth = 20
-        Me.btnEdit.Size = New System.Drawing.Size(140, 40)
-        Me.btnEdit.TabIndex = 55
-        Me.btnEdit.Text = "Edit"
         '
         'frmManageUsers
         '
@@ -1116,9 +1127,6 @@ Partial Class frmManageUsers
     Friend WithEvents Panel14 As Panel
     Friend WithEvents Panel15 As Panel
     Friend WithEvents ListView2 As ListView
-    Friend WithEvents ColumnHeader1 As ColumnHeader
-    Friend WithEvents ColumnHeader8 As ColumnHeader
-    Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Panel16 As Panel
     Friend WithEvents ListView3 As ListView
@@ -1142,4 +1150,8 @@ Partial Class frmManageUsers
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnEdit As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cboStatus As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents ColumnHeader11 As ColumnHeader
+    Friend WithEvents ColumnHeader12 As ColumnHeader
+    Friend WithEvents ColumnHeader17 As ColumnHeader
+    Friend WithEvents lblUserID As Label
 End Class

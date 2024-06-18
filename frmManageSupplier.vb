@@ -86,7 +86,7 @@ Public Class frmManageSupplier
 
     Private Sub insertSupplier()
         Try
-            sql = "Insert into tblSuppliers (SupplierName, ContactPerson, Email, Address) values (@SupplierName, @ContactPerson, @Email, @Address)"
+            sql = "INSERT INTO tblSuppliers (SupplierName, ContactPerson, Email, Address) VALUES (@SupplierName, @ContactPerson, @Email, @Address)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
@@ -96,6 +96,7 @@ Public Class frmManageSupplier
                 .ExecuteNonQuery()
             End With
             MsgBox("Successfully created!", MsgBoxStyle.Information)
+            Call ActivityLogs("Insert Supplier Info")
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(insertSupplier): " & ex.Message)
         End Try
@@ -114,10 +115,12 @@ Public Class frmManageSupplier
                 .ExecuteNonQuery()
             End With
             MsgBox("Successfully updated!", MsgBoxStyle.Information)
+            Call ActivityLogs("Update Supplier Info")
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(updateSupplier): " & ex.Message)
         End Try
     End Sub
+
 
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -177,13 +180,14 @@ Public Class frmManageSupplier
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         Try
             If MsgBox("Do you want to delete?", vbYesNo) = vbYes Then
-                sql = "DELETE from tblSuppliers where SupplierID = @item"
+                sql = "DELETE FROM tblSuppliers WHERE SupplierID = @item"
                 cmd = New OleDbCommand(sql, cn)
                 With cmd
                     .Parameters.AddWithValue("@item", lblSupplierID.Text)
                     .ExecuteNonQuery()
                 End With
                 MsgBox("Record Deleted!")
+                Call ActivityLogs("Delete Supplier Info")
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(btnDelete_TextChanged): " & ex.Message)
@@ -193,6 +197,7 @@ Public Class frmManageSupplier
         Call startThings()
         Call disableThings()
     End Sub
+
 
     Private Sub lblSupplierID_TextChanged(sender As Object, e As EventArgs) Handles lblSupplierID.TextChanged
         Try
@@ -207,7 +212,24 @@ Public Class frmManageSupplier
                 txtAddress.Text = dr(3).ToString()
             End If
         Catch ex As Exception
-            MsgBox("An error occurred frmManageSupplier(txtSupplierName_TextChanged): " & ex.Message)
+            MsgBox("An error occurred frmManageSupplier(lblSupplierID_TextChanged): " & ex.Message)
         End Try
     End Sub
+
+    Private Sub ActivityLogs(activity As String)
+        Try
+            sql = "INSERT INTO tblActivity (Username, Activity, ActivityTime, ActivityDate) VALUES (@Username, @Activity, @ActivityTime, @ActivityDate)"
+            cmd = New OleDbCommand(sql, cn)
+            With cmd
+                .Parameters.AddWithValue("@Username", frmDashboard.lblUsername.Text)
+                .Parameters.AddWithValue("@Activity", activity)
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("HH:mm:ss"))
+                .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                .ExecuteNonQuery()
+            End With
+        Catch ex As Exception
+            MsgBox("An error occurred frmLogin(ActivityLogs): " & ex.Message)
+        End Try
+    End Sub
+
 End Class

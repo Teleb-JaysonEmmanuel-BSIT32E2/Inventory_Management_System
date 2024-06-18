@@ -50,10 +50,12 @@ Public Class frmLogin
                 dr = cmd.ExecuteReader
                 If dr.Read = True Then
                     MsgBox("Logging In!", MsgBoxStyle.Information)
+                    Call ActivityLogs()
                     If lblRole.Text = "Cashier" Then
                         frmPOSCashier.Show()
                         Me.Hide()
                     Else
+                        frmDashboard.lblUsername.Text = Me.txtUsername.Text
                         frmDashboard.Show()
                         Me.Hide()
                     End If
@@ -77,6 +79,22 @@ Public Class frmLogin
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmLogin(btnLogin): " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ActivityLogs()
+        Try
+            sql = "Insert into tblActivity (Username, Activity, ActivityTime, ActivityDate) values (@Username, @Activity, @ActivityTime, @ActivityDate)"
+            cmd = New OleDbCommand(sql, cn)
+            With cmd
+                .Parameters.AddWithValue("@Username", txtUsername.Text)
+                .Parameters.AddWithValue("@Activity", "Login")
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("HH:mm:ss"))
+                .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                .ExecuteNonQuery()
+            End With
+        Catch ex As Exception
+            MsgBox("An error occurred frmLogin(ActivityLogs): " & ex.Message)
         End Try
     End Sub
 

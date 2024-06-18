@@ -149,25 +149,25 @@ Partial Class frmManageSupplier
         '
         Me.ColumnHeader2.Text = "Supplier Name"
         Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader2.Width = 180
+        Me.ColumnHeader2.Width = 262
         '
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Contact Person"
         Me.ColumnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader3.Width = 250
+        Me.ColumnHeader3.Width = 262
         '
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Email"
         Me.ColumnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader4.Width = 380
+        Me.ColumnHeader4.Width = 262
         '
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Address"
         Me.ColumnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader5.Width = 400
+        Me.ColumnHeader5.Width = 262
         '
         'Panel8
         '
