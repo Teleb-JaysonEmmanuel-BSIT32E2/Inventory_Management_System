@@ -94,7 +94,7 @@ Public Class frmLogin
                 .Parameters.AddWithValue("@Username", txtUsername.Text)
                 .Parameters.AddWithValue("@Activity", "Login")
                 .Parameters.AddWithValue("@Details", "Login")
-                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("HH:mm:ss"))
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
                 .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .ExecuteNonQuery()
             End With

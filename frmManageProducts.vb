@@ -244,7 +244,7 @@ Public Class frmManageProducts
                 .Parameters.AddWithValue("@Username", frmDashboard.lblUsername.Text)
                 .Parameters.AddWithValue("@Activity", activity)
                 .Parameters.AddWithValue("@Details", details)
-                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("HH:mm:ss"))
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
                 .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .ExecuteNonQuery()
             End With
