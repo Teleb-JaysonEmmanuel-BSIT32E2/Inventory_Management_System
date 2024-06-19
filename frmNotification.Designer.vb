@@ -30,9 +30,6 @@ Partial Class frmNotification
         Me.Panel30 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnShow = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel34 = New System.Windows.Forms.Panel()
-        Me.btnOkay = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel32 = New System.Windows.Forms.Panel()
         Me.Panel31 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
@@ -48,7 +45,6 @@ Partial Class frmNotification
         Me.pnlListOfCustomerBody.SuspendLayout()
         Me.Panel30.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.Panel34.SuspendLayout()
         Me.Panel14.SuspendLayout()
         Me.Panel15.SuspendLayout()
         Me.SuspendLayout()
@@ -74,6 +70,7 @@ Partial Class frmNotification
         Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader10})
         Me.ListView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView2.FullRowSelect = True
         Me.ListView2.GridLines = True
         Me.ListView2.HideSelection = False
         Me.ListView2.Location = New System.Drawing.Point(10, 60)
@@ -104,8 +101,6 @@ Partial Class frmNotification
         '
         Me.Panel30.BackColor = System.Drawing.Color.White
         Me.Panel30.Controls.Add(Me.Panel3)
-        Me.Panel30.Controls.Add(Me.Panel2)
-        Me.Panel30.Controls.Add(Me.Panel34)
         Me.Panel30.Controls.Add(Me.Panel32)
         Me.Panel30.Controls.Add(Me.Panel31)
         Me.Panel30.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -118,7 +113,7 @@ Partial Class frmNotification
         '
         Me.Panel3.Controls.Add(Me.btnShow)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel3.Location = New System.Drawing.Point(150, 10)
+        Me.Panel3.Location = New System.Drawing.Point(0, 10)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(140, 40)
         Me.Panel3.TabIndex = 37
@@ -142,44 +137,6 @@ Partial Class frmNotification
         Me.btnShow.Size = New System.Drawing.Size(140, 40)
         Me.btnShow.TabIndex = 58
         Me.btnShow.Text = "Show"
-        '
-        'Panel2
-        '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(140, 10)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(10, 40)
-        Me.Panel2.TabIndex = 37
-        '
-        'Panel34
-        '
-        Me.Panel34.BackColor = System.Drawing.Color.White
-        Me.Panel34.Controls.Add(Me.btnOkay)
-        Me.Panel34.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel34.Location = New System.Drawing.Point(0, 10)
-        Me.Panel34.Name = "Panel34"
-        Me.Panel34.Size = New System.Drawing.Size(140, 40)
-        Me.Panel34.TabIndex = 18
-        '
-        'btnOkay
-        '
-        Me.btnOkay.BorderRadius = 8
-        Me.btnOkay.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnOkay.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnOkay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnOkay.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnOkay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnOkay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnOkay.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnOkay.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnOkay.ForeColor = System.Drawing.Color.White
-        Me.btnOkay.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnOkay.Location = New System.Drawing.Point(0, 0)
-        Me.btnOkay.Name = "btnOkay"
-        Me.btnOkay.PressedDepth = 20
-        Me.btnOkay.Size = New System.Drawing.Size(140, 40)
-        Me.btnOkay.TabIndex = 57
-        Me.btnOkay.Text = "Okay"
         '
         'Panel32
         '
@@ -302,7 +259,6 @@ Partial Class frmNotification
         Me.pnlListOfCustomerBody.ResumeLayout(False)
         Me.Panel30.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        Me.Panel34.ResumeLayout(False)
         Me.Panel14.ResumeLayout(False)
         Me.Panel15.ResumeLayout(False)
         Me.Panel15.PerformLayout()
@@ -318,9 +274,6 @@ Partial Class frmNotification
     Friend WithEvents Panel30 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnShow As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Panel34 As Panel
-    Friend WithEvents btnOkay As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel32 As Panel
     Friend WithEvents Panel31 As Panel
     Friend WithEvents Panel8 As Panel
