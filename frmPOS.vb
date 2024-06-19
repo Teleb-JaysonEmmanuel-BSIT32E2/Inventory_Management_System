@@ -38,4 +38,8 @@ Public Class frmPOS
             MsgBox("An error occurred frmPOS(TransactionNumber): " & ex.Message)
         End Try
     End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        frmListProducts.Show()
+    End Sub
 End Class
