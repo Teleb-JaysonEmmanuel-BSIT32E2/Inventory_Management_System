@@ -133,11 +133,19 @@ Public Class frmManageProducts
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            If MsgBox("Do you want to save?", vbYesNo) = vbYes Then
-                If btnNew.Enabled = True And btnEdit.Enabled = False Then
-                    Call insertProducts()
-                ElseIf btnNew.Enabled = False And btnEdit.Enabled = True Then
-                    Call updateProducts()
+            sql = "Select ProductName from tblProducts where ProductName = @ProductName"
+            cmd = New OleDbCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
+            dr = cmd.ExecuteReader
+            If dr.Read = True Then
+                MsgBox("ProductName: '" & txtProductName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+            Else
+                If MsgBox("Do you want to save?", vbYesNo) = vbYes Then
+                    If btnNew.Enabled = True And btnEdit.Enabled = False Then
+                        Call insertProducts()
+                    ElseIf btnNew.Enabled = False And btnEdit.Enabled = True Then
+                        Call updateProducts()
+                    End If
                 End If
             End If
         Catch ex As Exception

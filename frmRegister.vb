@@ -45,7 +45,7 @@ Public Class frmRegister
             cmd.Parameters.AddWithValue("@Username", txtUsername.Text)
             dr = cmd.ExecuteReader
             If dr.Read = True Then
-                MsgBox("Username " & txtUsername.Text & " are already exist. Please provide unique username", MsgBoxStyle.Exclamation, "Username")
+                MsgBox("Username: " & txtUsername.Text & " already exist. Please provide unique username", MsgBoxStyle.Exclamation, "Username")
                 txtUsername.Focus()
             Else
                 Call SaveAccount()

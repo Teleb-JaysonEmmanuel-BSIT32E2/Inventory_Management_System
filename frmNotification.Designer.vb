@@ -83,19 +83,19 @@ Partial Class frmNotification
         'ColumnHeader12
         '
         Me.ColumnHeader12.Text = "Message"
-        Me.ColumnHeader12.Width = 350
+        Me.ColumnHeader12.Width = 336
         '
         'ColumnHeader13
         '
         Me.ColumnHeader13.Text = "Message Sent"
         Me.ColumnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader13.Width = 250
+        Me.ColumnHeader13.Width = 336
         '
         'ColumnHeader10
         '
         Me.ColumnHeader10.Text = "Status"
         Me.ColumnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader10.Width = 200
+        Me.ColumnHeader10.Width = 336
         '
         'Panel30
         '

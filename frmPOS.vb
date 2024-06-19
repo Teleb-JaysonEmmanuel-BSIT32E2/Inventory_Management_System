@@ -11,8 +11,25 @@ Public Class frmPOS
         Me.Close()
         frmLogin.txtUsername.Text = ""
         frmLogin.txtPassword.Text = ""
+        Call ActivityLogs()
         frmLogin.txtUsername.Focus()
         frmLogin.Show()
+    End Sub
+    Private Sub ActivityLogs()
+        Try
+            sql = "Insert into tblActivity (Username, Activity, Details, ActivityTime, ActivityDate) values (@Username, @Activity, @Details, @ActivityTime, @ActivityDate)"
+            cmd = New OleDbCommand(sql, cn)
+            With cmd
+                .Parameters.AddWithValue("@Username", lblUsername.Text)
+                .Parameters.AddWithValue("@Activity", "Logout")
+                .Parameters.AddWithValue("@Details", "Logout")
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
+                .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                .ExecuteNonQuery()
+            End With
+        Catch ex As Exception
+            MsgBox("An error occurred frmLogin(ActivityLogs): " & ex.Message)
+        End Try
     End Sub
 
     Private Sub btnPayment_Click(sender As Object, e As EventArgs) Handles btnPayment.Click
@@ -46,28 +63,42 @@ Public Class frmPOS
 
     Dim i As ListViewItem
     Dim amount As Double
+    Dim replenishReason As String = ""
 
     Private Sub btnAddCart_Click(sender As Object, e As EventArgs) Handles btnAddCart.Click
         Try
-            Dim j As String = InputBox("Enter the number of products", "Quantity")
-            If j = "" Or j = 0 Then
-                MsgBox("Please enter number of products")
+            Dim j As String = InputBox("Enter Quantity", "Quantity")
+
+            ' Check if input is valid
+            If String.IsNullOrEmpty(j) OrElse Val(j) <= 0 Then
+                MsgBox("Please enter a valid number of quantity")
+                Return
+            End If
+
+            ' Check stock availability
+            If Val(j) > Val(txtStock.Text) Then
+                MsgBox("Inputted Quantity is greater than Stock", MsgBoxStyle.Information)
+                replenishReason = "A customer requested more of this product than is currently available in stock."
+                Call replenishMessage()
+                MsgBox("Please Input Quantity within stock", MsgBoxStyle.Information)
             Else
-                If Val(j) > Val(txtStock.Text) Then
-                    MsgBox("Inputted Quantity is greater than Stock", MsgBoxStyle.Information)
+                ' Call replenishMessage if stock is less than 10
+                If Val(txtStock.Text) < 10 Then
+                    replenishReason = "The stock for this product is running low."
                     Call replenishMessage()
-                    MsgBox("Please Input Quantity within stock", MsgBoxStyle.Information)
+                End If
+
+                ' Proceed to add to the cart if stock is sufficient
+                If Val(txtStock.Text) > 0 Then
+                    txtStock.Text = Val(txtStock.Text) - Val(j)
+                    amount = Val(txtPrice.Text) * Val(j)
+                    i = Me.ListView1.Items.Add(txtProductName.Text) ' Product Name
+                    i.SubItems.Add(txtDescription.Text) ' Description
+                    i.SubItems.Add(txtPrice.Text) ' Amount
+                    i.SubItems.Add(j) ' Quantity
+                    i.SubItems.Add(amount) ' Total Amount
                 Else
-                    If Val(txtStock.Text) < 10 Then
-                        Call replenishMessage()
-                        txtStock.Text = Val(txtStock.Text) - Val(j)
-                        amount = Val(txtPrice.Text) * Val(j)
-                        i = Me.ListView1.Items.Add(txtProductName.Text) 'Product Name
-                        i.SubItems.Add(txtDescription.Text) 'Description
-                        i.SubItems.Add(txtPrice.Text) 'Amount
-                        i.SubItems.Add(j) 'Quantity
-                        i.SubItems.Add(amount) 'Total Amount
-                    End If
+                    MsgBox("No stock available to add to the cart", MsgBoxStyle.Information)
                 End If
             End If
             Call getTotal()
@@ -77,13 +108,14 @@ Public Class frmPOS
         End Try
     End Sub
 
+
     Private Sub replenishMessage()
         Try
             sql = "Insert into tblMessage (ReplenishMessage, MessageSent, Status) values (@ReplenishMessage, @MessageSent, @Status)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
-                .Parameters.AddWithValue("@ReplenishMessage", "Need to Restock on Product: '" & txtProductName.Text & "'")
-                .Parameters.AddWithValue("@MessageSent", DateTime.Parse(lblDate.Text))
+                .Parameters.AddWithValue("@ReplenishMessage", "Attention: Need to restock on product: '" & txtProductName.Text & "'. " & replenishReason & " Current stock for product: '" & txtStock.Text & "'. Please take necessary action.")
+                .Parameters.AddWithValue("@MessageSent", DateTime.Now.ToString("yyyy-MM-dd"))
                 .Parameters.AddWithValue("@Status", "Unread")
                 .ExecuteNonQuery()
             End With
@@ -147,6 +179,7 @@ Public Class frmPOS
             End If
             Call getTransactionNumber()
             Call clearThings()
+            btnConfirm.Enabled = False
         Catch ex As Exception
             MsgBox("An error occurred frmPOS(btnConfirm): " & ex.Message)
         End Try
@@ -159,7 +192,7 @@ Public Class frmPOS
             With cmd
                 .Parameters.AddWithValue("@Username", lblUsername.Text)
                 .Parameters.AddWithValue("@TransactionNumber", lblTransactNo.Text)
-                .Parameters.AddWithValue("@SalesDate", DateTime.Parse(lblDate.Text))
+                .Parameters.AddWithValue("@SalesDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .Parameters.AddWithValue("@TotalAmount", lblGrandTotal.Text)
                 .ExecuteNonQuery()
             End With
@@ -171,7 +204,7 @@ Public Class frmPOS
     Private Sub insertSalesDetails()
         Try
             For Each i As ListViewItem In ListView1.Items
-                sql = "Insert into tblSalesDetails (TransactionNumber, ProductName, Price, Quantity, TotalPrice) values (@TransactionNumber, @ProductName, @Price, @Quantity, @TotalPrice)"
+                sql = "Insert into tblSalesDetails (TransactionNumber, ProductName, Price, Quantity, TotalPrice, ProductID) values (@TransactionNumber, @ProductName, @Price, @Quantity, @TotalPrice, @ProductID)"
                 cmd = New OleDbCommand(sql, cn)
                 With cmd
                     .Parameters.AddWithValue("@TransactionNumber", lblTransactNo.Text)
@@ -179,6 +212,7 @@ Public Class frmPOS
                     .Parameters.AddWithValue("@Quantity", i.SubItems(3).Text)
                     .Parameters.AddWithValue("@Price", i.SubItems(2).Text)
                     .Parameters.AddWithValue("@TotalPrice", i.SubItems(4).Text)
+                    .Parameters.AddWithValue("@ProductID", lblProductID.Text)
                     .ExecuteNonQuery()
                 End With
             Next
@@ -201,7 +235,7 @@ Public Class frmPOS
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@TransactionNumber", lblTransactNo.Text)
-                .Parameters.AddWithValue("@PaymentDate", DateTime.Parse(lblDate.Text))
+                .Parameters.AddWithValue("@PaymentDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .Parameters.AddWithValue("@Amount", lblGrandTotal.Text)
                 .Parameters.AddWithValue("@PaymentMethod", lblMOP.Text)
                 .ExecuteNonQuery()

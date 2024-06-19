@@ -9,6 +9,12 @@ Public Class frmDashboard
         frmDataAnalytics.Show()
         Call connection()
         Call getMessageCount()
+        frmPOS.bntLogout.Enabled = False
+        frmPOS.lblUsername.Text = Me.lblUsername.Text
+    End Sub
+
+    Public Sub getMessCount()
+        Call getMessageCount()
     End Sub
 
     Private Sub getMessageCount()
@@ -29,8 +35,26 @@ Public Class frmDashboard
         frmLogin.txtUsername.Text = ""
         frmLogin.txtPassword.Text = ""
         frmLogin.txtUsername.Focus()
+        Call ActivityLogs()
         frmLogin.Show()
         Me.Close()
+    End Sub
+
+    Private Sub ActivityLogs()
+        Try
+            sql = "Insert into tblActivity (Username, Activity, Details, ActivityTime, ActivityDate) values (@Username, @Activity, @Details, @ActivityTime, @ActivityDate)"
+            cmd = New OleDbCommand(sql, cn)
+            With cmd
+                .Parameters.AddWithValue("@Username", lblUsername.Text)
+                .Parameters.AddWithValue("@Activity", "Logout")
+                .Parameters.AddWithValue("@Details", "Logout")
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
+                .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                .ExecuteNonQuery()
+            End With
+        Catch ex As Exception
+            MsgBox("An error occurred frmLogin(ActivityLogs): " & ex.Message)
+        End Try
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
