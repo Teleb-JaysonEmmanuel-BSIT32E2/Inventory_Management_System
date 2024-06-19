@@ -23,6 +23,7 @@ Partial Class frmPOS
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPOS))
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblTransactNo = New System.Windows.Forms.Label()
@@ -31,8 +32,6 @@ Partial Class frmPOS
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlBody = New System.Windows.Forms.Panel()
-        Me.txtQuantity = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
@@ -84,6 +83,7 @@ Partial Class frmPOS
         Me.txtProductName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnSearch = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel5.SuspendLayout()
         Me.pnlBody.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -174,8 +174,7 @@ Partial Class frmPOS
         'pnlBody
         '
         Me.pnlBody.BackColor = System.Drawing.Color.White
-        Me.pnlBody.Controls.Add(Me.txtQuantity)
-        Me.pnlBody.Controls.Add(Me.Label20)
+        Me.pnlBody.Controls.Add(Me.btnSearch)
         Me.pnlBody.Controls.Add(Me.Panel7)
         Me.pnlBody.Controls.Add(Me.btnCancel)
         Me.pnlBody.Controls.Add(Me.btnConfirm)
@@ -195,40 +194,6 @@ Partial Class frmPOS
         Me.pnlBody.Name = "pnlBody"
         Me.pnlBody.Size = New System.Drawing.Size(1366, 699)
         Me.pnlBody.TabIndex = 3
-        '
-        'txtQuantity
-        '
-        Me.txtQuantity.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtQuantity.DefaultText = ""
-        Me.txtQuantity.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtQuantity.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtQuantity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtQuantity.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtQuantity.Enabled = False
-        Me.txtQuantity.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtQuantity.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.txtQuantity.ForeColor = System.Drawing.Color.Black
-        Me.txtQuantity.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtQuantity.Location = New System.Drawing.Point(856, 38)
-        Me.txtQuantity.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtQuantity.Name = "txtQuantity"
-        Me.txtQuantity.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtQuantity.PlaceholderText = ""
-        Me.txtQuantity.SelectedText = ""
-        Me.txtQuantity.Size = New System.Drawing.Size(214, 36)
-        Me.txtQuantity.TabIndex = 93
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.BackColor = System.Drawing.Color.Transparent
-        Me.Label20.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.SandyBrown
-        Me.Label20.Location = New System.Drawing.Point(855, 15)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(73, 19)
-        Me.Label20.TabIndex = 92
-        Me.Label20.Text = "Quantity"
         '
         'Panel7
         '
@@ -773,7 +738,7 @@ Partial Class frmPOS
         Me.txtStock.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.txtStock.ForeColor = System.Drawing.Color.Black
         Me.txtStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtStock.Location = New System.Drawing.Point(1090, 38)
+        Me.txtStock.Location = New System.Drawing.Point(922, 38)
         Me.txtStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtStock.Name = "txtStock"
         Me.txtStock.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -788,7 +753,7 @@ Partial Class frmPOS
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.SandyBrown
-        Me.Label7.Location = New System.Drawing.Point(1089, 15)
+        Me.Label7.Location = New System.Drawing.Point(921, 15)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 19)
         Me.Label7.TabIndex = 85
@@ -807,7 +772,7 @@ Partial Class frmPOS
         Me.txtPrice.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.txtPrice.ForeColor = System.Drawing.Color.Black
         Me.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrice.Location = New System.Drawing.Point(620, 38)
+        Me.txtPrice.Location = New System.Drawing.Point(683, 38)
         Me.txtPrice.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -822,7 +787,7 @@ Partial Class frmPOS
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.SandyBrown
-        Me.Label6.Location = New System.Drawing.Point(619, 15)
+        Me.Label6.Location = New System.Drawing.Point(682, 15)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 19)
         Me.Label6.TabIndex = 83
@@ -841,7 +806,7 @@ Partial Class frmPOS
         Me.txtDescription.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.txtDescription.ForeColor = System.Drawing.Color.Black
         Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(251, 38)
+        Me.txtDescription.Location = New System.Drawing.Point(314, 38)
         Me.txtDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -856,7 +821,7 @@ Partial Class frmPOS
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.SandyBrown
-        Me.Label5.Location = New System.Drawing.Point(250, 15)
+        Me.Label5.Location = New System.Drawing.Point(313, 15)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(97, 19)
         Me.Label5.TabIndex = 81
@@ -900,6 +865,23 @@ Partial Class frmPOS
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BorderRadius = 8
+        Me.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSearch.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnSearch.ForeColor = System.Drawing.Color.White
+        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
+        Me.btnSearch.Location = New System.Drawing.Point(242, 38)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(45, 36)
+        Me.btnSearch.TabIndex = 78
         '
         'frmPOS
         '
@@ -987,11 +969,10 @@ Partial Class frmPOS
     Friend WithEvents Timer1 As Timer
     Friend WithEvents bntLogout As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ColumnHeader4 As ColumnHeader
-    Friend WithEvents txtQuantity As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label20 As Label
     Friend WithEvents lblRefNo As Label
     Friend WithEvents lblMOP As Label
     Friend WithEvents lblAmountChange As Label
     Friend WithEvents lblAmountPaid As Label
     Friend WithEvents lblTotalProductSold As Label
+    Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
 End Class

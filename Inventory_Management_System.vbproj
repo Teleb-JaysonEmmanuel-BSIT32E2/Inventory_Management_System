@@ -114,6 +114,12 @@
     <Compile Include="frmDataAnalytics.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmListProducts.Designer.vb">
+      <DependentUpon>frmListProducts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListProducts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmListSuppliers.Designer.vb">
       <DependentUpon>frmListSuppliers.vb</DependentUpon>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDataAnalytics.resx">
       <DependentUpon>frmDataAnalytics.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListProducts.resx">
+      <DependentUpon>frmListProducts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListSuppliers.resx">
       <DependentUpon>frmListSuppliers.vb</DependentUpon>
