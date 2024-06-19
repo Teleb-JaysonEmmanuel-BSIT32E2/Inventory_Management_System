@@ -61,17 +61,15 @@ Partial Class frmManageUsers
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.txtSearchUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Panel19 = New System.Windows.Forms.Panel()
-        Me.Panel20 = New System.Windows.Forms.Panel()
-        Me.Panel21 = New System.Windows.Forms.Panel()
-        Me.Panel23 = New System.Windows.Forms.Panel()
-        Me.btnOkay = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel24 = New System.Windows.Forms.Panel()
-        Me.Panel25 = New System.Windows.Forms.Panel()
-        Me.Panel26 = New System.Windows.Forms.Panel()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -99,11 +97,16 @@ Partial Class frmManageUsers
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Panel20 = New System.Windows.Forms.Panel()
+        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Panel21 = New System.Windows.Forms.Panel()
+        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -118,9 +121,8 @@ Partial Class frmManageUsers
         Me.TabPage2.SuspendLayout()
         Me.Panel16.SuspendLayout()
         Me.Panel17.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.Panel20.SuspendLayout()
-        Me.Panel21.SuspendLayout()
-        Me.Panel23.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -136,6 +138,7 @@ Partial Class frmManageUsers
         '
         Me.TabControl2.Controls.Add(Me.TabPage1)
         Me.TabControl2.Controls.Add(Me.TabPage2)
+        Me.TabControl2.Controls.Add(Me.TabPage3)
         Me.TabControl2.Cursor = System.Windows.Forms.Cursors.Default
         Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl2.ItemSize = New System.Drawing.Size(180, 40)
@@ -566,6 +569,7 @@ Partial Class frmManageUsers
         Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader17})
         Me.ListView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView2.FullRowSelect = True
         Me.ListView2.GridLines = True
         Me.ListView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView2.HideSelection = False
@@ -598,7 +602,6 @@ Partial Class frmManageUsers
         '
         Me.TabPage2.Controls.Add(Me.Panel16)
         Me.TabPage2.Controls.Add(Me.Panel17)
-        Me.TabPage2.Controls.Add(Me.Panel20)
         Me.TabPage2.Location = New System.Drawing.Point(4, 44)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -613,7 +616,7 @@ Partial Class frmManageUsers
         Me.Panel16.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel16.Location = New System.Drawing.Point(3, 61)
         Me.Panel16.Name = "Panel16"
-        Me.Panel16.Size = New System.Drawing.Size(1057, 407)
+        Me.Panel16.Size = New System.Drawing.Size(1057, 488)
         Me.Panel16.TabIndex = 3
         '
         'ListView3
@@ -621,16 +624,46 @@ Partial Class frmManageUsers
         Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader13})
         Me.ListView3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView3.FullRowSelect = True
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
         Me.ListView3.HoverSelection = True
         Me.ListView3.Location = New System.Drawing.Point(0, 0)
         Me.ListView3.Name = "ListView3"
-        Me.ListView3.Size = New System.Drawing.Size(1057, 407)
+        Me.ListView3.Size = New System.Drawing.Size(1057, 488)
         Me.ListView3.TabIndex = 39
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Username"
+        Me.ColumnHeader1.Width = 211
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Activity"
+        Me.ColumnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader8.Width = 211
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Details"
+        Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader9.Width = 211
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "ActivityTime"
+        Me.ColumnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader10.Width = 211
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "ActivityDate"
+        Me.ColumnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader13.Width = 211
         '
         'Panel17
         '
@@ -682,85 +715,6 @@ Partial Class frmManageUsers
         Me.Panel19.Name = "Panel19"
         Me.Panel19.Size = New System.Drawing.Size(1057, 10)
         Me.Panel19.TabIndex = 19
-        '
-        'Panel20
-        '
-        Me.Panel20.Controls.Add(Me.Panel21)
-        Me.Panel20.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel20.Location = New System.Drawing.Point(3, 468)
-        Me.Panel20.Name = "Panel20"
-        Me.Panel20.Size = New System.Drawing.Size(1057, 81)
-        Me.Panel20.TabIndex = 1
-        '
-        'Panel21
-        '
-        Me.Panel21.BackColor = System.Drawing.Color.White
-        Me.Panel21.Controls.Add(Me.Panel23)
-        Me.Panel21.Controls.Add(Me.Panel24)
-        Me.Panel21.Controls.Add(Me.Panel25)
-        Me.Panel21.Controls.Add(Me.Panel26)
-        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel21.Location = New System.Drawing.Point(0, 21)
-        Me.Panel21.Name = "Panel21"
-        Me.Panel21.Size = New System.Drawing.Size(1057, 60)
-        Me.Panel21.TabIndex = 19
-        '
-        'Panel23
-        '
-        Me.Panel23.BackColor = System.Drawing.Color.White
-        Me.Panel23.Controls.Add(Me.btnOkay)
-        Me.Panel23.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel23.Location = New System.Drawing.Point(10, 10)
-        Me.Panel23.Name = "Panel23"
-        Me.Panel23.Size = New System.Drawing.Size(140, 40)
-        Me.Panel23.TabIndex = 18
-        '
-        'btnOkay
-        '
-        Me.btnOkay.BorderRadius = 8
-        Me.btnOkay.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnOkay.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnOkay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnOkay.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnOkay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnOkay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnOkay.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnOkay.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnOkay.ForeColor = System.Drawing.Color.White
-        Me.btnOkay.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnOkay.Location = New System.Drawing.Point(0, 0)
-        Me.btnOkay.Name = "btnOkay"
-        Me.btnOkay.PressedDepth = 20
-        Me.btnOkay.Size = New System.Drawing.Size(140, 40)
-        Me.btnOkay.TabIndex = 57
-        Me.btnOkay.Text = "Okay"
-        '
-        'Panel24
-        '
-        Me.Panel24.BackColor = System.Drawing.Color.White
-        Me.Panel24.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel24.Location = New System.Drawing.Point(0, 10)
-        Me.Panel24.Name = "Panel24"
-        Me.Panel24.Size = New System.Drawing.Size(10, 40)
-        Me.Panel24.TabIndex = 18
-        '
-        'Panel25
-        '
-        Me.Panel25.BackColor = System.Drawing.Color.White
-        Me.Panel25.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel25.Location = New System.Drawing.Point(0, 50)
-        Me.Panel25.Name = "Panel25"
-        Me.Panel25.Size = New System.Drawing.Size(1057, 10)
-        Me.Panel25.TabIndex = 18
-        '
-        'Panel26
-        '
-        Me.Panel26.BackColor = System.Drawing.Color.White
-        Me.Panel26.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel26.Location = New System.Drawing.Point(0, 0)
-        Me.Panel26.Name = "Panel26"
-        Me.Panel26.Size = New System.Drawing.Size(1057, 10)
-        Me.Panel26.TabIndex = 18
         '
         'ListView1
         '
@@ -1020,34 +974,108 @@ Partial Class frmManageUsers
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
         '
-        'ColumnHeader1
+        'TabPage3
         '
-        Me.ColumnHeader1.Text = "Username"
-        Me.ColumnHeader1.Width = 211
+        Me.TabPage3.Controls.Add(Me.ListView4)
+        Me.TabPage3.Controls.Add(Me.Panel20)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 44)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1063, 552)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Activity Sales"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'ColumnHeader8
+        'Panel20
         '
-        Me.ColumnHeader8.Text = "Activity"
-        Me.ColumnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader8.Width = 211
+        Me.Panel20.Controls.Add(Me.txtSearch)
+        Me.Panel20.Controls.Add(Me.Panel21)
+        Me.Panel20.Controls.Add(Me.Panel22)
+        Me.Panel20.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel20.Location = New System.Drawing.Point(3, 3)
+        Me.Panel20.Name = "Panel20"
+        Me.Panel20.Size = New System.Drawing.Size(1057, 58)
+        Me.Panel20.TabIndex = 3
         '
-        'ColumnHeader9
+        'txtSearch
         '
-        Me.ColumnHeader9.Text = "Details"
-        Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader9.Width = 211
+        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearch.DefaultText = ""
+        Me.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSearch.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSearch.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.txtSearch.ForeColor = System.Drawing.Color.Black
+        Me.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.txtSearch.Location = New System.Drawing.Point(0, 10)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSearch.PlaceholderText = "Search by username"
+        Me.txtSearch.SelectedText = ""
+        Me.txtSearch.Size = New System.Drawing.Size(295, 31)
+        Me.txtSearch.TabIndex = 47
         '
-        'ColumnHeader10
+        'Panel21
         '
-        Me.ColumnHeader10.Text = "ActivityTime"
-        Me.ColumnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader10.Width = 211
+        Me.Panel21.BackColor = System.Drawing.Color.White
+        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel21.Location = New System.Drawing.Point(0, 41)
+        Me.Panel21.Name = "Panel21"
+        Me.Panel21.Size = New System.Drawing.Size(1057, 17)
+        Me.Panel21.TabIndex = 20
         '
-        'ColumnHeader13
+        'Panel22
         '
-        Me.ColumnHeader13.Text = "ActivityDate"
-        Me.ColumnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader13.Width = 211
+        Me.Panel22.BackColor = System.Drawing.Color.White
+        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel22.Location = New System.Drawing.Point(0, 0)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(1057, 10)
+        Me.Panel22.TabIndex = 19
+        '
+        'ListView4
+        '
+        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader18, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.ListView4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListView4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView4.FullRowSelect = True
+        Me.ListView4.GridLines = True
+        Me.ListView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView4.HideSelection = False
+        Me.ListView4.HoverSelection = True
+        Me.ListView4.Location = New System.Drawing.Point(3, 61)
+        Me.ListView4.Name = "ListView4"
+        Me.ListView4.Size = New System.Drawing.Size(1057, 488)
+        Me.ListView4.TabIndex = 40
+        Me.ListView4.UseCompatibleStateImageBehavior = False
+        Me.ListView4.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "Transaction"
+        Me.ColumnHeader14.Width = 250
+        '
+        'ColumnHeader15
+        '
+        Me.ColumnHeader15.Text = "Sales Date"
+        Me.ColumnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader15.Width = 210
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "Total Amount"
+        Me.ColumnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader16.Width = 250
+        '
+        'ColumnHeader18
+        '
+        Me.ColumnHeader18.Text = "Username"
+        Me.ColumnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader18.Width = 250
         '
         'frmManageUsers
         '
@@ -1073,9 +1101,8 @@ Partial Class frmManageUsers
         Me.TabPage2.ResumeLayout(False)
         Me.Panel16.ResumeLayout(False)
         Me.Panel17.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
         Me.Panel20.ResumeLayout(False)
-        Me.Panel21.ResumeLayout(False)
-        Me.Panel23.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1140,13 +1167,6 @@ Partial Class frmManageUsers
     Friend WithEvents Panel17 As Panel
     Friend WithEvents Panel18 As Panel
     Friend WithEvents Panel19 As Panel
-    Friend WithEvents Panel20 As Panel
-    Friend WithEvents Panel21 As Panel
-    Friend WithEvents Panel23 As Panel
-    Friend WithEvents btnOkay As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Panel24 As Panel
-    Friend WithEvents Panel25 As Panel
-    Friend WithEvents Panel26 As Panel
     Friend WithEvents txtSearchUsername As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnCancel As Guna.UI2.WinForms.Guna2Button
@@ -1162,4 +1182,14 @@ Partial Class frmManageUsers
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents ColumnHeader10 As ColumnHeader
     Friend WithEvents ColumnHeader13 As ColumnHeader
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents Panel20 As Panel
+    Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Panel21 As Panel
+    Friend WithEvents Panel22 As Panel
+    Friend WithEvents ListView4 As ListView
+    Friend WithEvents ColumnHeader14 As ColumnHeader
+    Friend WithEvents ColumnHeader15 As ColumnHeader
+    Friend WithEvents ColumnHeader16 As ColumnHeader
+    Friend WithEvents ColumnHeader18 As ColumnHeader
 End Class

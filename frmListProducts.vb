@@ -58,7 +58,7 @@ Public Class frmListProducts
             frmPOS.txtDescription.Text = ListView1.SelectedItems(0).SubItems(1).Text
             frmPOS.txtPrice.Text = ListView1.SelectedItems(0).SubItems(2).Text
             frmPOS.txtStock.Text = ListView1.SelectedItems(0).SubItems(3).Text
-            frmPOS.lblProductID.Text = ListView1.SelectedItems(0).SubItems(4).Text
+            'frmPOS.lblProductID.Text = ListView1.SelectedItems(0).SubItems(4).Text
         End If
     End Sub
 

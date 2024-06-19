@@ -27,6 +27,7 @@ Partial Class frmDataAnalytics
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -39,7 +40,6 @@ Partial Class frmDataAnalytics
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblTotalRevenue = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -76,6 +76,7 @@ Partial Class frmDataAnalytics
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
@@ -95,6 +96,12 @@ Partial Class frmDataAnalytics
         Me.ColumnHeader9.Text = "Description"
         Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.ColumnHeader9.Width = 220
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Total Quantiy Sold"
+        Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader2.Width = 200
         '
         'Panel5
         '
@@ -217,12 +224,6 @@ Partial Class frmDataAnalytics
         Me.Label6.Size = New System.Drawing.Size(233, 37)
         Me.Label6.TabIndex = 73
         Me.Label6.Text = "Total Revenue"
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Total Quantiy Sold"
-        Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader2.Width = 200
         '
         'frmDataAnalytics
         '
