@@ -1,4 +1,6 @@
-﻿Public Class frmDashboard
+﻿Imports System.Data.OleDb
+
+Public Class frmDashboard
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         frmDataAnalytics.TopLevel = False
@@ -6,8 +8,23 @@
         frmDataAnalytics.BringToFront()
         frmDataAnalytics.Show()
         Call connection()
+        Call getMessageCount()
     End Sub
 
+    Private Sub getMessageCount()
+        Try
+            sql = "Select COUNT(ReplenishMessage) from tblMessage where Status = 'Unread'"
+            cmd = New OleDbCommand(sql, cn)
+            dr = cmd.ExecuteReader
+            If dr.Read = True Then
+                lblNotif.Text = Val(dr(0))
+            Else
+                lblNotif.Text = 0
+            End If
+        Catch ex As Exception
+            MsgBox("An error occurred frmDashboard(NotifNumber): " & ex.Message)
+        End Try
+    End Sub
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         frmLogin.txtUsername.Text = ""
         frmLogin.txtPassword.Text = ""
