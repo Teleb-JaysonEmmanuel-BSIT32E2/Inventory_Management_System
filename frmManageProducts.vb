@@ -94,18 +94,26 @@ Public Class frmManageProducts
 
     Private Sub insertProducts()
         Try
-            sql = "Insert into tblProducts (ProductName, Description, Price, Stock, SupplierID) values (@ProductName, @Description, @Price, @Stock, @SupplierID)"
+            sql = "Select ProductName from tblProducts where ProductName = @ProductName"
             cmd = New OleDbCommand(sql, cn)
-            With cmd
-                .Parameters.AddWithValue("@ProductName", txtProductName.Text)
-                .Parameters.AddWithValue("@Description", txtDescription.Text)
-                .Parameters.AddWithValue("@Price", txtPrice.Text)
-                .Parameters.AddWithValue("@Stock", txtStock.Text)
-                .Parameters.AddWithValue("@SupplierID", Convert.ToInt32(lblSupplierID.Text))
-                .ExecuteNonQuery()
-            End With
-            MsgBox("Successfully created!", MsgBoxStyle.Information)
-            Call ActivityLogs("Insert Product Info", txtProductName.Text)
+            cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
+            dr = cmd.ExecuteReader
+            If dr.Read = True Then
+                MsgBox("ProductName: '" & txtProductName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+            Else
+                sql = "Insert into tblProducts (ProductName, Description, Price, Stock, SupplierID) values (@ProductName, @Description, @Price, @Stock, @SupplierID)"
+                cmd = New OleDbCommand(sql, cn)
+                With cmd
+                    .Parameters.AddWithValue("@ProductName", txtProductName.Text)
+                    .Parameters.AddWithValue("@Description", txtDescription.Text)
+                    .Parameters.AddWithValue("@Price", txtPrice.Text)
+                    .Parameters.AddWithValue("@Stock", txtStock.Text)
+                    .Parameters.AddWithValue("@SupplierID", Convert.ToInt32(lblSupplierID.Text))
+                    .ExecuteNonQuery()
+                End With
+                MsgBox("Successfully created!", MsgBoxStyle.Information)
+                Call ActivityLogs("Insert Product Info", txtProductName.Text)
+            End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageProducts(insertProducts): " & ex.Message)
         End Try
@@ -131,21 +139,18 @@ Public Class frmManageProducts
         End Try
     End Sub
 
+
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             sql = "Select ProductName from tblProducts where ProductName = @ProductName"
             cmd = New OleDbCommand(sql, cn)
             cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
             dr = cmd.ExecuteReader
-            If dr.Read = True Then
-                MsgBox("ProductName: '" & txtProductName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
-            Else
-                If MsgBox("Do you want to save?", vbYesNo) = vbYes Then
-                    If btnNew.Enabled = True And btnEdit.Enabled = False Then
-                        Call insertProducts()
-                    ElseIf btnNew.Enabled = False And btnEdit.Enabled = True Then
-                        Call updateProducts()
-                    End If
+            If MsgBox("Do you want to save?", vbYesNo) = vbYes Then
+                If btnNew.Enabled = True And btnEdit.Enabled = False Then
+                    Call insertProducts()
+                ElseIf btnNew.Enabled = False And btnEdit.Enabled = True Then
+                    Call updateProducts()
                 End If
             End If
         Catch ex As Exception
@@ -258,6 +263,20 @@ Public Class frmManageProducts
             End With
         Catch ex As Exception
             MsgBox("An error occurred frmLogin(ActivityLogs): " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtSupplierName_TextChanged(sender As Object, e As EventArgs) Handles txtSupplierName.TextChanged
+        Try
+            sql = "Select SupplierID from tblSuppliers where SupplierName = @SupplierName"
+            cmd = New OleDbCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
+            dr = cmd.ExecuteReader
+            If dr.Read = True Then
+                lblSupplierID.Text = dr(0).ToString()
+            End If
+        Catch ex As Exception
+            MsgBox("An error occurred frmLogin(txtSupplierName_TextChanged): " & ex.Message)
         End Try
     End Sub
 End Class
