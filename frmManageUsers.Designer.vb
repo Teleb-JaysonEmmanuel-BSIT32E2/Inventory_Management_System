@@ -70,6 +70,16 @@ Partial Class frmManageUsers
         Me.txtSearchUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Panel19 = New System.Windows.Forms.Panel()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Panel20 = New System.Windows.Forms.Panel()
+        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Panel21 = New System.Windows.Forms.Panel()
+        Me.Panel22 = New System.Windows.Forms.Panel()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -97,16 +107,6 @@ Partial Class frmManageUsers
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Panel20 = New System.Windows.Forms.Panel()
-        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Panel21 = New System.Windows.Forms.Panel()
-        Me.Panel22 = New System.Windows.Forms.Panel()
-        Me.ListView4 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -628,7 +628,6 @@ Partial Class frmManageUsers
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
-        Me.ListView3.HoverSelection = True
         Me.ListView3.Location = New System.Drawing.Point(0, 0)
         Me.ListView3.Name = "ListView3"
         Me.ListView3.Size = New System.Drawing.Size(1057, 488)
@@ -715,6 +714,109 @@ Partial Class frmManageUsers
         Me.Panel19.Name = "Panel19"
         Me.Panel19.Size = New System.Drawing.Size(1057, 10)
         Me.Panel19.TabIndex = 19
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.ListView4)
+        Me.TabPage3.Controls.Add(Me.Panel20)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 44)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1063, 552)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Activity Sales"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'ListView4
+        '
+        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader18, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.ListView4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListView4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView4.FullRowSelect = True
+        Me.ListView4.GridLines = True
+        Me.ListView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView4.HideSelection = False
+        Me.ListView4.HoverSelection = True
+        Me.ListView4.Location = New System.Drawing.Point(3, 61)
+        Me.ListView4.Name = "ListView4"
+        Me.ListView4.Size = New System.Drawing.Size(1057, 488)
+        Me.ListView4.TabIndex = 40
+        Me.ListView4.UseCompatibleStateImageBehavior = False
+        Me.ListView4.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader18
+        '
+        Me.ColumnHeader18.Text = "Username"
+        Me.ColumnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader18.Width = 250
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "Transaction"
+        Me.ColumnHeader14.Width = 250
+        '
+        'ColumnHeader15
+        '
+        Me.ColumnHeader15.Text = "Sales Date"
+        Me.ColumnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader15.Width = 210
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "Total Amount"
+        Me.ColumnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader16.Width = 250
+        '
+        'Panel20
+        '
+        Me.Panel20.Controls.Add(Me.txtSearch)
+        Me.Panel20.Controls.Add(Me.Panel21)
+        Me.Panel20.Controls.Add(Me.Panel22)
+        Me.Panel20.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel20.Location = New System.Drawing.Point(3, 3)
+        Me.Panel20.Name = "Panel20"
+        Me.Panel20.Size = New System.Drawing.Size(1057, 58)
+        Me.Panel20.TabIndex = 3
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearch.DefaultText = ""
+        Me.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSearch.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSearch.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.txtSearch.ForeColor = System.Drawing.Color.Black
+        Me.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.txtSearch.Location = New System.Drawing.Point(0, 10)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSearch.PlaceholderText = "Search by username"
+        Me.txtSearch.SelectedText = ""
+        Me.txtSearch.Size = New System.Drawing.Size(295, 31)
+        Me.txtSearch.TabIndex = 47
+        '
+        'Panel21
+        '
+        Me.Panel21.BackColor = System.Drawing.Color.White
+        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel21.Location = New System.Drawing.Point(0, 41)
+        Me.Panel21.Name = "Panel21"
+        Me.Panel21.Size = New System.Drawing.Size(1057, 17)
+        Me.Panel21.TabIndex = 20
+        '
+        'Panel22
+        '
+        Me.Panel22.BackColor = System.Drawing.Color.White
+        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel22.Location = New System.Drawing.Point(0, 0)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(1057, 10)
+        Me.Panel22.TabIndex = 19
         '
         'ListView1
         '
@@ -973,109 +1075,6 @@ Partial Class frmManageUsers
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.ListView4)
-        Me.TabPage3.Controls.Add(Me.Panel20)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 44)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1063, 552)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Activity Sales"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Panel20
-        '
-        Me.Panel20.Controls.Add(Me.txtSearch)
-        Me.Panel20.Controls.Add(Me.Panel21)
-        Me.Panel20.Controls.Add(Me.Panel22)
-        Me.Panel20.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel20.Location = New System.Drawing.Point(3, 3)
-        Me.Panel20.Name = "Panel20"
-        Me.Panel20.Size = New System.Drawing.Size(1057, 58)
-        Me.Panel20.TabIndex = 3
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearch.DefaultText = ""
-        Me.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSearch.Dock = System.Windows.Forms.DockStyle.Left
-        Me.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSearch.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.txtSearch.ForeColor = System.Drawing.Color.Black
-        Me.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.txtSearch.Location = New System.Drawing.Point(0, 10)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtSearch.PlaceholderText = "Search by username"
-        Me.txtSearch.SelectedText = ""
-        Me.txtSearch.Size = New System.Drawing.Size(295, 31)
-        Me.txtSearch.TabIndex = 47
-        '
-        'Panel21
-        '
-        Me.Panel21.BackColor = System.Drawing.Color.White
-        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel21.Location = New System.Drawing.Point(0, 41)
-        Me.Panel21.Name = "Panel21"
-        Me.Panel21.Size = New System.Drawing.Size(1057, 17)
-        Me.Panel21.TabIndex = 20
-        '
-        'Panel22
-        '
-        Me.Panel22.BackColor = System.Drawing.Color.White
-        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel22.Location = New System.Drawing.Point(0, 0)
-        Me.Panel22.Name = "Panel22"
-        Me.Panel22.Size = New System.Drawing.Size(1057, 10)
-        Me.Panel22.TabIndex = 19
-        '
-        'ListView4
-        '
-        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader18, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
-        Me.ListView4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListView4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.ListView4.FullRowSelect = True
-        Me.ListView4.GridLines = True
-        Me.ListView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.ListView4.HideSelection = False
-        Me.ListView4.HoverSelection = True
-        Me.ListView4.Location = New System.Drawing.Point(3, 61)
-        Me.ListView4.Name = "ListView4"
-        Me.ListView4.Size = New System.Drawing.Size(1057, 488)
-        Me.ListView4.TabIndex = 40
-        Me.ListView4.UseCompatibleStateImageBehavior = False
-        Me.ListView4.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader14
-        '
-        Me.ColumnHeader14.Text = "Transaction"
-        Me.ColumnHeader14.Width = 250
-        '
-        'ColumnHeader15
-        '
-        Me.ColumnHeader15.Text = "Sales Date"
-        Me.ColumnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader15.Width = 210
-        '
-        'ColumnHeader16
-        '
-        Me.ColumnHeader16.Text = "Total Amount"
-        Me.ColumnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader16.Width = 250
-        '
-        'ColumnHeader18
-        '
-        Me.ColumnHeader18.Text = "Username"
-        Me.ColumnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader18.Width = 250
         '
         'frmManageUsers
         '

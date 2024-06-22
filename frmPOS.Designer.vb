@@ -25,6 +25,7 @@ Partial Class frmPOS
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPOS))
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblProductID = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblTransactNo = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -32,6 +33,7 @@ Partial Class frmPOS
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlBody = New System.Windows.Forms.Panel()
+        Me.btnSearch = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
@@ -83,7 +85,6 @@ Partial Class frmPOS
         Me.txtProductName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnSearch = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel5.SuspendLayout()
         Me.pnlBody.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -99,6 +100,7 @@ Partial Class frmPOS
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel5.Controls.Add(Me.lblProductID)
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.lblTransactNo)
         Me.Panel5.Controls.Add(Me.Panel3)
@@ -110,6 +112,16 @@ Partial Class frmPOS
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(1366, 50)
         Me.Panel5.TabIndex = 2
+        '
+        'lblProductID
+        '
+        Me.lblProductID.AutoSize = True
+        Me.lblProductID.Location = New System.Drawing.Point(514, 31)
+        Me.lblProductID.Name = "lblProductID"
+        Me.lblProductID.Size = New System.Drawing.Size(39, 13)
+        Me.lblProductID.TabIndex = 6
+        Me.lblProductID.Text = "Label2"
+        Me.lblProductID.Visible = False
         '
         'Label3
         '
@@ -194,6 +206,23 @@ Partial Class frmPOS
         Me.pnlBody.Name = "pnlBody"
         Me.pnlBody.Size = New System.Drawing.Size(1366, 699)
         Me.pnlBody.TabIndex = 3
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BorderRadius = 8
+        Me.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSearch.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnSearch.ForeColor = System.Drawing.Color.White
+        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
+        Me.btnSearch.Location = New System.Drawing.Point(242, 38)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(45, 36)
+        Me.btnSearch.TabIndex = 78
         '
         'Panel7
         '
@@ -396,6 +425,7 @@ Partial Class frmPOS
         Me.btnConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnConfirm.Enabled = False
         Me.btnConfirm.FillColor = System.Drawing.Color.SeaGreen
         Me.btnConfirm.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.btnConfirm.ForeColor = System.Drawing.Color.White
@@ -866,23 +896,6 @@ Partial Class frmPOS
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'btnSearch
-        '
-        Me.btnSearch.BorderRadius = 8
-        Me.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSearch.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
-        Me.btnSearch.Location = New System.Drawing.Point(242, 38)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(45, 36)
-        Me.btnSearch.TabIndex = 78
-        '
         'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -975,4 +988,5 @@ Partial Class frmPOS
     Friend WithEvents lblAmountPaid As Label
     Friend WithEvents lblTotalProductSold As Label
     Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblProductID As Label
 End Class

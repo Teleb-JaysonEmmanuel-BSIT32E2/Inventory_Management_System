@@ -40,6 +40,7 @@ Partial Class frmDataAnalytics
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.lblTotalRevenue = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -194,6 +195,7 @@ Partial Class frmDataAnalytics
         'Guna2Panel4
         '
         Me.Guna2Panel4.BackColor = System.Drawing.Color.SeaGreen
+        Me.Guna2Panel4.Controls.Add(Me.Label13)
         Me.Guna2Panel4.Controls.Add(Me.lblTotalRevenue)
         Me.Guna2Panel4.Controls.Add(Me.Label6)
         Me.Guna2Panel4.Location = New System.Drawing.Point(562, 16)
@@ -207,7 +209,7 @@ Partial Class frmDataAnalytics
         Me.lblTotalRevenue.BackColor = System.Drawing.Color.Transparent
         Me.lblTotalRevenue.Font = New System.Drawing.Font("Arial", 35.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalRevenue.ForeColor = System.Drawing.Color.White
-        Me.lblTotalRevenue.Location = New System.Drawing.Point(127, 57)
+        Me.lblTotalRevenue.Location = New System.Drawing.Point(110, 57)
         Me.lblTotalRevenue.Name = "lblTotalRevenue"
         Me.lblTotalRevenue.Size = New System.Drawing.Size(303, 55)
         Me.lblTotalRevenue.TabIndex = 74
@@ -221,9 +223,21 @@ Partial Class frmDataAnalytics
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(19, 15)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(233, 37)
+        Me.Label6.Size = New System.Drawing.Size(204, 37)
         Me.Label6.TabIndex = 73
-        Me.Label6.Text = "Total Revenue"
+        Me.Label6.Text = "Gross Sales"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Arial", 35.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.White
+        Me.Label13.Location = New System.Drawing.Point(49, 57)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(55, 55)
+        Me.Label13.TabIndex = 88
+        Me.Label13.Text = "₱"
         '
         'frmDataAnalytics
         '
@@ -266,4 +280,5 @@ Partial Class frmDataAnalytics
     Friend WithEvents lblTotalRevenue As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents Label13 As Label
 End Class
