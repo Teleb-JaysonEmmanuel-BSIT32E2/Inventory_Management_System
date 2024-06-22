@@ -48,12 +48,12 @@ Partial Class frmMessage
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.lblMessageID = New System.Windows.Forms.Label()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.Panel22 = New System.Windows.Forms.Panel()
-        Me.lblMessageID = New System.Windows.Forms.Label()
         Me.pnlListOfCustomerBody.SuspendLayout()
         Me.Panel36.SuspendLayout()
         Me.Panel37.SuspendLayout()
@@ -374,6 +374,16 @@ Partial Class frmMessage
         Me.Panel14.Size = New System.Drawing.Size(699, 50)
         Me.Panel14.TabIndex = 0
         '
+        'lblMessageID
+        '
+        Me.lblMessageID.AutoSize = True
+        Me.lblMessageID.Location = New System.Drawing.Point(280, 23)
+        Me.lblMessageID.Name = "lblMessageID"
+        Me.lblMessageID.Size = New System.Drawing.Size(39, 13)
+        Me.lblMessageID.TabIndex = 14
+        Me.lblMessageID.Text = "Label3"
+        Me.lblMessageID.Visible = False
+        '
         'Panel15
         '
         Me.Panel15.Controls.Add(Me.Label2)
@@ -395,9 +405,9 @@ Partial Class frmMessage
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(10, 15)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(164, 22)
+        Me.Label2.Size = New System.Drawing.Size(194, 22)
         Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Message Inquiry"
+        Me.Label2.Text = "Restock Notification"
         '
         'Panel16
         '
@@ -422,16 +432,6 @@ Partial Class frmMessage
         Me.Panel22.Name = "Panel22"
         Me.Panel22.Size = New System.Drawing.Size(265, 15)
         Me.Panel22.TabIndex = 13
-        '
-        'lblMessageID
-        '
-        Me.lblMessageID.AutoSize = True
-        Me.lblMessageID.Location = New System.Drawing.Point(280, 23)
-        Me.lblMessageID.Name = "lblMessageID"
-        Me.lblMessageID.Size = New System.Drawing.Size(39, 13)
-        Me.lblMessageID.TabIndex = 14
-        Me.lblMessageID.Text = "Label3"
-        Me.lblMessageID.Visible = False
         '
         'frmMessage
         '
