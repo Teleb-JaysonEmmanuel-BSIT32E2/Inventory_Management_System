@@ -107,6 +107,7 @@ Partial Class frmManageUsers
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -643,13 +644,11 @@ Partial Class frmManageUsers
         'ColumnHeader8
         '
         Me.ColumnHeader8.Text = "Activity"
-        Me.ColumnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.ColumnHeader8.Width = 211
         '
         'ColumnHeader9
         '
         Me.ColumnHeader9.Text = "Details"
-        Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.ColumnHeader9.Width = 211
         '
         'ColumnHeader10
@@ -729,14 +728,13 @@ Partial Class frmManageUsers
         '
         'ListView4
         '
-        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader18, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader18, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader19, Me.ColumnHeader16})
         Me.ListView4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.ListView4.FullRowSelect = True
         Me.ListView4.GridLines = True
         Me.ListView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView4.HideSelection = False
-        Me.ListView4.HoverSelection = True
         Me.ListView4.Location = New System.Drawing.Point(3, 61)
         Me.ListView4.Name = "ListView4"
         Me.ListView4.Size = New System.Drawing.Size(1057, 488)
@@ -1076,6 +1074,12 @@ Partial Class frmManageUsers
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
         '
+        'ColumnHeader19
+        '
+        Me.ColumnHeader19.Text = "Sales Time"
+        Me.ColumnHeader19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader19.Width = 180
+        '
         'frmManageUsers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1191,4 +1195,5 @@ Partial Class frmManageUsers
     Friend WithEvents ColumnHeader15 As ColumnHeader
     Friend WithEvents ColumnHeader16 As ColumnHeader
     Friend WithEvents ColumnHeader18 As ColumnHeader
+    Friend WithEvents ColumnHeader19 As ColumnHeader
 End Class

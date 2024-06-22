@@ -187,12 +187,13 @@ Public Class frmPOS
 
     Private Sub insertSales()
         Try
-            sql = "Insert into tblSales (Username, TransactionNumber, SalesDate, TotalAmount) values (@Username, @TransactionNumber, @SalesDate, @TotalAmount)"
+            sql = "Insert into tblSales (Username, TransactionNumber, SalesDate, SalesTime, TotalAmount) values (@Username, @TransactionNumber, @SalesDate, @SalesTime, @TotalAmount)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@Username", lblUsername.Text)
                 .Parameters.AddWithValue("@TransactionNumber", lblTransactNo.Text)
                 .Parameters.AddWithValue("@SalesDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                .Parameters.AddWithValue("@SalesTime", DateTime.Now.ToString("hh:mm tt"))
                 .Parameters.AddWithValue("@TotalAmount", lblGrandTotal.Text)
                 .ExecuteNonQuery()
             End With

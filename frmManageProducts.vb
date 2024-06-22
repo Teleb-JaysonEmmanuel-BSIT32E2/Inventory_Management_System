@@ -106,8 +106,8 @@ Public Class frmManageProducts
                 With cmd
                     .Parameters.AddWithValue("@ProductName", txtProductName.Text)
                     .Parameters.AddWithValue("@Description", txtDescription.Text)
-                    .Parameters.AddWithValue("@Price", txtPrice.Text)
-                    .Parameters.AddWithValue("@Stock", txtStock.Text)
+                    .Parameters.AddWithValue("@Price", Convert.ToDecimal(txtPrice.Text))
+                    .Parameters.AddWithValue("@Stock", Convert.ToInt32(txtStock.Text))
                     .Parameters.AddWithValue("@SupplierID", Convert.ToInt32(lblSupplierID.Text))
                     .ExecuteNonQuery()
                 End With
@@ -126,7 +126,7 @@ Public Class frmManageProducts
             With cmd
                 .Parameters.AddWithValue("@ProductName", txtProductName.Text)
                 .Parameters.AddWithValue("@Description", txtDescription.Text)
-                .Parameters.AddWithValue("@Price", txtPrice.Text)
+                .Parameters.AddWithValue("@Price", Convert.ToDecimal(txtPrice.Text))
                 .Parameters.AddWithValue("@Stock", txtStock.Text)
                 .Parameters.AddWithValue("@SupplierID", Convert.ToInt32(lblSupplierID.Text))
                 .Parameters.AddWithValue("@ProductID", Convert.ToInt32(lblProductID.Text))
@@ -257,8 +257,11 @@ Public Class frmManageProducts
                 .Parameters.AddWithValue("@Username", frmDashboard.lblUsername.Text)
                 .Parameters.AddWithValue("@Activity", activity)
                 .Parameters.AddWithValue("@Details", details)
-                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
-                .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                '.Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
+                .Parameters.AddWithValue("@ActivityTime", Now.ToLongTimeString)
+                '.Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
+                .Parameters.AddWithValue("@ActivityDate", Now.ToLongDateString)
+
                 .ExecuteNonQuery()
             End With
         Catch ex As Exception

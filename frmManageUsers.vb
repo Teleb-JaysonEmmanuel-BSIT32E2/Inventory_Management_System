@@ -46,8 +46,18 @@ Public Class frmManageUsers
                 x = New ListViewItem(dr("Username").ToString())
                 x.SubItems.Add(dr("Activity").ToString())
                 x.SubItems.Add(dr("Details").ToString())
-                x.SubItems.Add(dr("ActivityTime").ToString())
-                x.SubItems.Add(dr("ActivityDate").ToString())
+
+                'format ActivityTime
+                Dim activityTime As String = dr("ActivityTime").ToString()
+                x.SubItems.Add(DateTime.Parse(activityTime).ToString("hh:mm tt"))
+
+                'x.SubItems.Add(dr("ActivityTime").ToString())
+
+                'format ActivityDate
+                Dim activityDate As String = dr("ActivityDate").ToString()
+                x.SubItems.Add(DateTime.Parse(activityDate).ToString("yyyy-MM-dd"))
+
+                'x.SubItems.Add(dr("ActivityDate").ToString())
                 x.SubItems.Add(dr("ActivityID").ToString())
                 ListView3.Items.Add(x)
             Loop
@@ -57,8 +67,8 @@ Public Class frmManageUsers
     End Sub
 
     Private Sub loadSales()
-        Try
-            sql = "Select * from tblSales"
+        'Try
+        sql = "Select * from tblSales"
             cmd = New OleDbCommand(sql, cn)
             dr = cmd.ExecuteReader()
             Dim x As ListViewItem
@@ -67,13 +77,21 @@ Public Class frmManageUsers
             Do While dr.Read()
                 x = New ListViewItem(dr("Username").ToString())
                 x.SubItems.Add(dr("TransactionNumber").ToString())
-                x.SubItems.Add(dr("SalesDate").ToString())
-                x.SubItems.Add(dr("TotalAmount").ToString())
-                ListView4.Items.Add(x)
-            Loop
-        Catch ex As Exception
-            MsgBox("An error occurred frmManageUsers(ListViewLoadingSales): " & ex.Message)
-        End Try
+
+                'format date only
+                Dim activityDate As String = dr("SalesDate").ToString()
+                x.SubItems.Add(DateTime.Parse(activityDate).ToString("yyyy-MM-dd"))
+
+                'format ActivityTime
+                Dim activityTime As String = dr("SalesTime").ToString()
+            x.SubItems.Add(DateTime.Parse(activityTime).ToString("hh:mm tt"))
+
+            x.SubItems.Add(dr("TotalAmount").ToString())
+            ListView4.Items.Add(x)
+        Loop
+        'Catch ex As Exception
+        '    MsgBox("An error occurred frmManageUsers(ListViewLoadingSales): " & ex.Message)
+        'End Try
     End Sub
 
     Private Sub startThings()
@@ -239,7 +257,11 @@ Public Class frmManageUsers
     End Sub
 
     Public Function SearchDatabase(searchTerm As String) As DataTable
-        sql = "Select Username, Activity, Details, ActivityTime, ActivityDate, ActivityID from tblActivity where Username LIKE ?"
+        sql = "Select Username, Activity, Details, " &
+               "Format(ActivityTime, 'hh:mm AM/PM') AS FormattedActivityTime, " &
+               "Format(ActivityDate, 'yyyy-MM-dd') AS FormattedActivityDate " &
+               "FROM tblActivity WHERE Username LIKE ?"
+        'ActivityTime, ActivityDate, ActivityID from tblActivity where Username LIKE ?"
         cmd = New OleDbCommand(sql, cn)
         cmd.Parameters.Add(New OleDbParameter("searchTerm1", "%" & searchTerm & "%"))
 
@@ -263,7 +285,11 @@ Public Class frmManageUsers
     End Sub
 
     Public Function SearchDatabase1(searchTerm As String) As DataTable
-        sql = "Select Username, TransactionNumber, SalesDate, TotalAmount from tblSales where Username LIKE ?"
+        sql = "Select Username, TransactionNumber, " &
+               "Format(SalesDate, 'yyyy-MM-dd'), " &
+               "Format(SalesTime, 'hh:mm AM/PM'), " &
+               "TotalAmount " &
+               "FROM tblSales where Username LIKE ?"
         cmd = New OleDbCommand(sql, cn)
         cmd.Parameters.Add(New OleDbParameter("searchTerm1", "%" & searchTerm & "%"))
 
