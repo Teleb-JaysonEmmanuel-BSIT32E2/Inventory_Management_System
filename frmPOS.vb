@@ -204,30 +204,33 @@ Public Class frmPOS
     Private Sub insertSalesDetails()
         Try
             For Each i As ListViewItem In ListView1.Items
+                ' Insert into tblSalesDetails for each item
                 sql = "Insert into tblSalesDetails (TransactionNumber, ProductName, Price, Quantity, TotalPrice, ProductID) values (@TransactionNumber, @ProductName, @Price, @Quantity, @TotalPrice, @ProductID)"
                 cmd = New OleDbCommand(sql, cn)
                 With cmd
                     .Parameters.AddWithValue("@TransactionNumber", lblTransactNo.Text)
                     .Parameters.AddWithValue("@ProductName", i.Text)
-                    .Parameters.AddWithValue("@Quantity", i.SubItems(3).Text)
                     .Parameters.AddWithValue("@Price", i.SubItems(2).Text)
+                    .Parameters.AddWithValue("@Quantity", i.SubItems(3).Text)
                     .Parameters.AddWithValue("@TotalPrice", i.SubItems(4).Text)
-                    .Parameters.AddWithValue("@ProductID", lblProductID.Text)
+                    .Parameters.AddWithValue("@ProductID", lblProductID.Text) ' Ensure lblProductID is set correctly for each item
+                    .ExecuteNonQuery()
+                End With
+
+                ' Update stock for each product
+                sql = "Update tblProducts Set Stock = Stock - @Quantity Where ProductName = @ProductName"
+                cmd = New OleDbCommand(sql, cn)
+                With cmd
+                    .Parameters.AddWithValue("@Quantity", i.SubItems(3).Text)
+                    .Parameters.AddWithValue("@ProductName", i.Text)
                     .ExecuteNonQuery()
                 End With
             Next
-
-            sql = "Update tblProducts Set Stock = Stock - @Quantity Where ProductName = @ProductName"
-            cmd = New OleDbCommand(sql, cn)
-            With cmd
-                .Parameters.AddWithValue("@Quantity", i.SubItems(3).Text)
-                .Parameters.AddWithValue("@ProductName", i.Text)
-                .ExecuteNonQuery()
-            End With
         Catch ex As Exception
             MsgBox("An error occurred frmPOS(insertSalesDetails): " & ex.Message)
         End Try
     End Sub
+
 
     Private Sub insertPayment()
         Try
