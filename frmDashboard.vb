@@ -19,18 +19,50 @@ Public Class frmDashboard
 
     Private Sub getMessageCount()
         Try
-            sql = "Select COUNT(ReplenishMessage) from tblMessage where Status = 'Unread'"
+            ' Prepare the SQL statement with parameterized query for security
+            sql = "Select COUNT(ReplenishMessage) from tblMessage where Status = @Status"
             cmd = New OleDbCommand(sql, cn)
-            dr = cmd.ExecuteReader
-            If dr.Read = True Then
-                lblNotif.Text = Val(dr(0))
+            cmd.Parameters.AddWithValue("@Status", "Unread")  ' Prevent SQL injection
+
+            ' Execute the query and get the count (using a safer approach)
+            Dim count As Integer = DirectCast(cmd.ExecuteScalar(), Integer)
+
+            ' Update visibility and text based on the count
+            If count > 0 Then
+                picNotif.Visible = True
+                lblNotif.Visible = True
+                lblNotif.Text = count
             Else
-                lblNotif.Text = 0
+                picNotif.Visible = False
+                lblNotif.Visible = False
+                ' Optionally, set label text to indicate no notifications (e.g., "0")
+                ' lblNotif.Text = "0"
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmDashboard(NotifNumber): " & ex.Message)
+        Finally
+            ' Ensure the data reader is closed even on error (although not used here)
+            If dr IsNot Nothing Then
+                dr.Close()
+            End If
         End Try
     End Sub
+
+    'Private Sub getMessageCount()
+    '    Try
+    '        sql = "Select COUNT(ReplenishMessage) from tblMessage where Status = 'Unread'"
+    '        cmd = New OleDbCommand(sql, cn)
+    '        dr = cmd.ExecuteReader
+    '        If dr.Read = True Then
+    '            lblNotif.Text = Val(dr(0))
+    '        Else
+    '            lblNotif.Text = 0
+    '        End If
+    '    Catch ex As Exception
+    '        MsgBox("An error occurred frmDashboard(NotifNumber): " & ex.Message)
+    '    End Try
+    'End Sub
+
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         frmLogin.txtUsername.Text = ""
         frmLogin.txtPassword.Text = ""

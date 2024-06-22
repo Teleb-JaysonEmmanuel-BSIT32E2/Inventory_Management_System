@@ -43,7 +43,7 @@ Partial Class frmDashboard
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.lblNotif = New System.Windows.Forms.Label()
-        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.picNotif = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.btnNotif = New Guna.UI2.WinForms.Guna2CircleButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -67,7 +67,7 @@ Partial Class frmDashboard
         Me.Panel2.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picNotif, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
         Me.Panel13.SuspendLayout()
         Me.Panel12.SuspendLayout()
@@ -338,7 +338,7 @@ Partial Class frmDashboard
         '
         Me.Panel5.BackColor = System.Drawing.Color.Transparent
         Me.Panel5.Controls.Add(Me.lblNotif)
-        Me.Panel5.Controls.Add(Me.Guna2CirclePictureBox1)
+        Me.Panel5.Controls.Add(Me.picNotif)
         Me.Panel5.Controls.Add(Me.btnNotif)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel5.Location = New System.Drawing.Point(958, 0)
@@ -359,20 +359,20 @@ Partial Class frmDashboard
         Me.lblNotif.TabIndex = 4
         Me.lblNotif.Text = "1"
         '
-        'Guna2CirclePictureBox1
+        'picNotif
         '
-        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Guna2CirclePictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Guna2CirclePictureBox1.FillColor = System.Drawing.Color.Red
-        Me.Guna2CirclePictureBox1.ImageRotate = 0!
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(57, 26)
-        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(30, 30)
-        Me.Guna2CirclePictureBox1.TabIndex = 4
-        Me.Guna2CirclePictureBox1.TabStop = False
-        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
+        Me.picNotif.BackColor = System.Drawing.Color.Transparent
+        Me.picNotif.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.picNotif.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picNotif.FillColor = System.Drawing.Color.Red
+        Me.picNotif.ImageRotate = 0!
+        Me.picNotif.Location = New System.Drawing.Point(57, 26)
+        Me.picNotif.Name = "picNotif"
+        Me.picNotif.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.picNotif.Size = New System.Drawing.Size(30, 30)
+        Me.picNotif.TabIndex = 4
+        Me.picNotif.TabStop = False
+        Me.picNotif.UseTransparentBackground = True
         '
         'btnNotif
         '
@@ -615,7 +615,7 @@ Partial Class frmDashboard
         Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picNotif, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel13.ResumeLayout(False)
@@ -643,7 +643,7 @@ Partial Class frmDashboard
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents btnNotif As Guna.UI2.WinForms.Guna2CircleButton
-    Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents picNotif As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents lblNotif As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lblUsername As Label

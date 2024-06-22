@@ -85,6 +85,8 @@ Partial Class frmPOS
         Me.txtProductName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel5.SuspendLayout()
         Me.pnlBody.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -476,6 +478,8 @@ Partial Class frmPOS
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.lblRefNo)
         Me.GroupBox2.Controls.Add(Me.lblMOP)
         Me.GroupBox2.Controls.Add(Me.lblAmountChange)
@@ -500,9 +504,9 @@ Partial Class frmPOS
         Me.lblRefNo.ForeColor = System.Drawing.Color.SandyBrown
         Me.lblRefNo.Location = New System.Drawing.Point(188, 176)
         Me.lblRefNo.Name = "lblRefNo"
-        Me.lblRefNo.Size = New System.Drawing.Size(108, 19)
+        Me.lblRefNo.Size = New System.Drawing.Size(27, 19)
         Me.lblRefNo.TabIndex = 92
-        Me.lblRefNo.Text = "XXXXXXXXX"
+        Me.lblRefNo.Text = "***"
         '
         'lblMOP
         '
@@ -512,9 +516,9 @@ Partial Class frmPOS
         Me.lblMOP.ForeColor = System.Drawing.Color.SandyBrown
         Me.lblMOP.Location = New System.Drawing.Point(188, 135)
         Me.lblMOP.Name = "lblMOP"
-        Me.lblMOP.Size = New System.Drawing.Size(108, 19)
+        Me.lblMOP.Size = New System.Drawing.Size(27, 19)
         Me.lblMOP.TabIndex = 91
-        Me.lblMOP.Text = "XXXXXXXXX"
+        Me.lblMOP.Text = "***"
         '
         'lblAmountChange
         '
@@ -524,9 +528,9 @@ Partial Class frmPOS
         Me.lblAmountChange.ForeColor = System.Drawing.Color.SandyBrown
         Me.lblAmountChange.Location = New System.Drawing.Point(188, 97)
         Me.lblAmountChange.Name = "lblAmountChange"
-        Me.lblAmountChange.Size = New System.Drawing.Size(108, 19)
+        Me.lblAmountChange.Size = New System.Drawing.Size(40, 19)
         Me.lblAmountChange.TabIndex = 90
-        Me.lblAmountChange.Text = "XXXXXXXXX"
+        Me.lblAmountChange.Text = "0.00"
         '
         'lblAmountPaid
         '
@@ -536,9 +540,9 @@ Partial Class frmPOS
         Me.lblAmountPaid.ForeColor = System.Drawing.Color.SandyBrown
         Me.lblAmountPaid.Location = New System.Drawing.Point(188, 60)
         Me.lblAmountPaid.Name = "lblAmountPaid"
-        Me.lblAmountPaid.Size = New System.Drawing.Size(108, 19)
+        Me.lblAmountPaid.Size = New System.Drawing.Size(40, 19)
         Me.lblAmountPaid.TabIndex = 89
-        Me.lblAmountPaid.Text = "XXXXXXXXX"
+        Me.lblAmountPaid.Text = "0.00"
         '
         'lblTotalProductSold
         '
@@ -548,9 +552,9 @@ Partial Class frmPOS
         Me.lblTotalProductSold.ForeColor = System.Drawing.Color.SandyBrown
         Me.lblTotalProductSold.Location = New System.Drawing.Point(188, 18)
         Me.lblTotalProductSold.Name = "lblTotalProductSold"
-        Me.lblTotalProductSold.Size = New System.Drawing.Size(108, 19)
+        Me.lblTotalProductSold.Size = New System.Drawing.Size(18, 19)
         Me.lblTotalProductSold.TabIndex = 88
-        Me.lblTotalProductSold.Text = "XXXXXXXXX"
+        Me.lblTotalProductSold.Text = "0"
         '
         'Label12
         '
@@ -698,6 +702,7 @@ Partial Class frmPOS
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2, Me.ColumnHeader4, Me.ColumnHeader3})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
@@ -896,6 +901,30 @@ Partial Class frmPOS
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.SandyBrown
+        Me.Label2.Location = New System.Drawing.Point(168, 60)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(20, 19)
+        Me.Label2.TabIndex = 93
+        Me.Label2.Text = "₱"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.SandyBrown
+        Me.Label14.Location = New System.Drawing.Point(168, 97)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(20, 19)
+        Me.Label14.TabIndex = 94
+        Me.Label14.Text = "₱"
+        '
         'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -989,4 +1018,6 @@ Partial Class frmPOS
     Friend WithEvents lblTotalProductSold As Label
     Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblProductID As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label2 As Label
 End Class
