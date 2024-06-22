@@ -53,6 +53,7 @@ Partial Class frmMessage
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.lblMessageID = New System.Windows.Forms.Label()
         Me.pnlListOfCustomerBody.SuspendLayout()
         Me.Panel36.SuspendLayout()
         Me.Panel37.SuspendLayout()
@@ -365,6 +366,7 @@ Partial Class frmMessage
         'Panel14
         '
         Me.Panel14.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel14.Controls.Add(Me.lblMessageID)
         Me.Panel14.Controls.Add(Me.Panel15)
         Me.Panel14.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel14.Location = New System.Drawing.Point(0, 0)
@@ -421,6 +423,16 @@ Partial Class frmMessage
         Me.Panel22.Size = New System.Drawing.Size(265, 15)
         Me.Panel22.TabIndex = 13
         '
+        'lblMessageID
+        '
+        Me.lblMessageID.AutoSize = True
+        Me.lblMessageID.Location = New System.Drawing.Point(280, 23)
+        Me.lblMessageID.Name = "lblMessageID"
+        Me.lblMessageID.Size = New System.Drawing.Size(39, 13)
+        Me.lblMessageID.TabIndex = 14
+        Me.lblMessageID.Text = "Label3"
+        Me.lblMessageID.Visible = False
+        '
         'frmMessage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -444,6 +456,7 @@ Partial Class frmMessage
         Me.Panel30.ResumeLayout(False)
         Me.Panel34.ResumeLayout(False)
         Me.Panel14.ResumeLayout(False)
+        Me.Panel14.PerformLayout()
         Me.Panel15.ResumeLayout(False)
         Me.Panel15.PerformLayout()
         Me.ResumeLayout(False)
@@ -481,4 +494,5 @@ Partial Class frmMessage
     Friend WithEvents Panel16 As Panel
     Friend WithEvents Panel17 As Panel
     Friend WithEvents Panel22 As Panel
+    Friend WithEvents lblMessageID As Label
 End Class

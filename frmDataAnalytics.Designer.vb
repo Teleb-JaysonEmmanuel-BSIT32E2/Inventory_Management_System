@@ -89,19 +89,19 @@ Partial Class frmDataAnalytics
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Product Name"
-        Me.ColumnHeader1.Width = 200
+        Me.ColumnHeader1.Width = 351
         '
         'ColumnHeader9
         '
         Me.ColumnHeader9.Text = "Description"
         Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader9.Width = 220
+        Me.ColumnHeader9.Width = 351
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Total Quantiy Sold"
         Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader2.Width = 200
+        Me.ColumnHeader2.Width = 351
         '
         'Panel5
         '

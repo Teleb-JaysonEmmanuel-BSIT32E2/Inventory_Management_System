@@ -5,6 +5,7 @@ Public Class frmManageUsers
         Call connection()
         Call loadUsers()
         Call loadActivity()
+        Call loadSales()
         Call disableThings()
         Call startThings()
     End Sub
@@ -52,6 +53,26 @@ Public Class frmManageUsers
             Loop
         Catch ex As Exception
             MsgBox("An error occurred frmManageUsers(ListViewLoadingActivity): " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub loadSales()
+        Try
+            sql = "Select * from tblSales"
+            cmd = New OleDbCommand(sql, cn)
+            dr = cmd.ExecuteReader()
+            Dim x As ListViewItem
+            ListView4.Items.Clear()
+
+            Do While dr.Read()
+                x = New ListViewItem(dr("Username").ToString())
+                x.SubItems.Add(dr("TransactionNumber").ToString())
+                x.SubItems.Add(dr("SalesDate").ToString())
+                x.SubItems.Add(dr("TotalAmount").ToString())
+                ListView4.Items.Add(x)
+            Loop
+        Catch ex As Exception
+            MsgBox("An error occurred frmManageUsers(ListViewLoadingSales): " & ex.Message)
         End Try
     End Sub
 
@@ -219,6 +240,30 @@ Public Class frmManageUsers
 
     Public Function SearchDatabase(searchTerm As String) As DataTable
         sql = "Select Username, Activity, Details, ActivityTime, ActivityDate, ActivityID from tblActivity where Username LIKE ?"
+        cmd = New OleDbCommand(sql, cn)
+        cmd.Parameters.Add(New OleDbParameter("searchTerm1", "%" & searchTerm & "%"))
+
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter(cmd)
+        da.Fill(dt)
+
+        Return dt
+    End Function
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Dim dt As DataTable = SearchDatabase1(txtSearch.Text)
+        PopulateListView1(dt)
+    End Sub
+
+    Private Sub PopulateListView1(dt As DataTable)
+        ListView4.Items.Clear()
+        For Each row As DataRow In dt.Rows
+            ListView4.Items.Add(New ListViewItem(row.ItemArray.Select(Function(x) x.ToString()).ToArray()))
+        Next
+    End Sub
+
+    Public Function SearchDatabase1(searchTerm As String) As DataTable
+        sql = "Select Username, TransactionNumber, SalesDate, TotalAmount from tblSales where Username LIKE ?"
         cmd = New OleDbCommand(sql, cn)
         cmd.Parameters.Add(New OleDbParameter("searchTerm1", "%" & searchTerm & "%"))
 
