@@ -86,17 +86,25 @@ Public Class frmManageSupplier
 
     Private Sub insertSupplier()
         Try
-            sql = "INSERT INTO tblSuppliers (SupplierName, ContactPerson, Email, Address) VALUES (@SupplierName, @ContactPerson, @Email, @Address)"
+            sql = "Select SupplierName from tblProducts where SupplierName = @SupplierName"
             cmd = New OleDbCommand(sql, cn)
-            With cmd
-                .Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
-                .Parameters.AddWithValue("@ContactPerson", txtContactPerson.Text)
-                .Parameters.AddWithValue("@Email", txtEmail.Text)
-                .Parameters.AddWithValue("@Address", txtAddress.Text)
-                .ExecuteNonQuery()
-            End With
-            MsgBox("Successfully created!", MsgBoxStyle.Information)
-            Call ActivityLogs("Insert Supplier Info", txtSupplierName.Text)
+            cmd.Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
+            dr = cmd.ExecuteReader
+            If dr.Read = True Then
+                MsgBox("SupplierName: '" & txtSupplierName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+            Else
+                sql = "INSERT INTO tblSuppliers (SupplierName, ContactPerson, Email, Address) VALUES (@SupplierName, @ContactPerson, @Email, @Address)"
+                cmd = New OleDbCommand(sql, cn)
+                With cmd
+                    .Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
+                    .Parameters.AddWithValue("@ContactPerson", txtContactPerson.Text)
+                    .Parameters.AddWithValue("@Email", txtEmail.Text)
+                    .Parameters.AddWithValue("@Address", txtAddress.Text)
+                    .ExecuteNonQuery()
+                End With
+                MsgBox("Successfully created!", MsgBoxStyle.Information)
+                Call ActivityLogs("Insert Supplier Info", txtSupplierName.Text)
+            End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(insertSupplier): " & ex.Message)
         End Try
@@ -125,19 +133,11 @@ Public Class frmManageSupplier
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            sql = "Select SupplierName from tblProducts where SupplierName = @SupplierName"
-            cmd = New OleDbCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
-            dr = cmd.ExecuteReader
-            If dr.Read = True Then
-                MsgBox("SupplierName: '" & txtSupplierName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
-            Else
-                If MsgBox("Do you want to save?", vbYesNo) = vbYes Then
-                    If btnNew.Enabled = True And btnEdit.Enabled = False Then
-                        Call insertSupplier()
-                    ElseIf btnNew.Enabled = False And btnEdit.Enabled = True Then
-                        Call updateSupplier()
-                    End If
+            If MsgBox("Do you want to save?", vbYesNo) = vbYes Then
+                If btnNew.Enabled = True And btnEdit.Enabled = False Then
+                    Call insertSupplier()
+                ElseIf btnNew.Enabled = False And btnEdit.Enabled = True Then
+                    Call updateSupplier()
                 End If
             End If
         Catch ex As Exception
