@@ -54,6 +54,8 @@ Partial Class frmPOS
         Me.lblGrandTotal = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.lblRefNo = New System.Windows.Forms.Label()
         Me.lblMOP = New System.Windows.Forms.Label()
         Me.lblAmountChange = New System.Windows.Forms.Label()
@@ -85,8 +87,6 @@ Partial Class frmPOS
         Me.txtProductName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel5.SuspendLayout()
         Me.pnlBody.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -496,6 +496,30 @@ Partial Class frmPOS
         Me.GroupBox2.TabIndex = 87
         Me.GroupBox2.TabStop = False
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.SandyBrown
+        Me.Label14.Location = New System.Drawing.Point(168, 97)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(20, 19)
+        Me.Label14.TabIndex = 94
+        Me.Label14.Text = "₱"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.SandyBrown
+        Me.Label2.Location = New System.Drawing.Point(168, 60)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(20, 19)
+        Me.Label2.TabIndex = 93
+        Me.Label2.Text = "₱"
+        '
         'lblRefNo
         '
         Me.lblRefNo.AutoSize = True
@@ -900,30 +924,6 @@ Partial Class frmPOS
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.SandyBrown
-        Me.Label2.Location = New System.Drawing.Point(168, 60)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(20, 19)
-        Me.Label2.TabIndex = 93
-        Me.Label2.Text = "₱"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.SandyBrown
-        Me.Label14.Location = New System.Drawing.Point(168, 97)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(20, 19)
-        Me.Label14.TabIndex = 94
-        Me.Label14.Text = "₱"
         '
         'frmPOS
         '
