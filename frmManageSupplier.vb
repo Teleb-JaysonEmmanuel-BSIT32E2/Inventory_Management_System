@@ -86,24 +86,28 @@ Public Class frmManageSupplier
 
     Private Sub insertSupplier()
         Try
-            sql = "Select SupplierName from tblProducts where SupplierName = @SupplierName"
-            cmd = New OleDbCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
-            dr = cmd.ExecuteReader
-            If dr.Read = True Then
-                MsgBox("SupplierName: '" & txtSupplierName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+            If txtSupplierName.Text = "" Or txtAddress.Text = "" Or txtContactPerson.Text = "" Or txtEmail.Text = "" Then
+                MsgBox("Please Fill out the Fields", MsgBoxStyle.Exclamation)
             Else
-                sql = "INSERT INTO tblSuppliers (SupplierName, ContactPerson, Email, Address) VALUES (@SupplierName, @ContactPerson, @Email, @Address)"
+                sql = "Select SupplierName from tblSuppliers where SupplierName = @SupplierName"
                 cmd = New OleDbCommand(sql, cn)
-                With cmd
-                    .Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
-                    .Parameters.AddWithValue("@ContactPerson", txtContactPerson.Text)
-                    .Parameters.AddWithValue("@Email", txtEmail.Text)
-                    .Parameters.AddWithValue("@Address", txtAddress.Text)
-                    .ExecuteNonQuery()
-                End With
-                MsgBox("Successfully created!", MsgBoxStyle.Information)
-                Call ActivityLogs("Insert Supplier Info", txtSupplierName.Text)
+                cmd.Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
+                dr = cmd.ExecuteReader
+                If dr.Read = True Then
+                    MsgBox("SupplierName: '" & txtSupplierName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+                Else
+                    sql = "INSERT INTO tblSuppliers (SupplierName, ContactPerson, Email, Address) VALUES (@SupplierName, @ContactPerson, @Email, @Address)"
+                    cmd = New OleDbCommand(sql, cn)
+                    With cmd
+                        .Parameters.AddWithValue("@SupplierName", txtSupplierName.Text)
+                        .Parameters.AddWithValue("@ContactPerson", txtContactPerson.Text)
+                        .Parameters.AddWithValue("@Email", txtEmail.Text)
+                        .Parameters.AddWithValue("@Address", txtAddress.Text)
+                        .ExecuteNonQuery()
+                    End With
+                    MsgBox("Successfully created!", MsgBoxStyle.Information)
+                    Call ActivityLogs("Insert Supplier Info", txtSupplierName.Text)
+                End If
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageSupplier(insertSupplier): " & ex.Message)
