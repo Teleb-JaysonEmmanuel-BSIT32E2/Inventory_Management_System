@@ -76,7 +76,6 @@ Partial Class frmPOS
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnAddCart = New Guna.UI2.WinForms.Guna2Button()
         Me.txtStock = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -723,7 +722,7 @@ Partial Class frmPOS
         '
         'ListView1
         '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2, Me.ColumnHeader4, Me.ColumnHeader3})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader9, Me.ColumnHeader2, Me.ColumnHeader4})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.ListView1.FullRowSelect = True
@@ -739,13 +738,13 @@ Partial Class frmPOS
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Product Name"
-        Me.ColumnHeader1.Width = 150
+        Me.ColumnHeader1.Width = 170
         '
         'ColumnHeader9
         '
         Me.ColumnHeader9.Text = "Description"
         Me.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader9.Width = 380
+        Me.ColumnHeader9.Width = 390
         '
         'ColumnHeader2
         '
@@ -758,12 +757,6 @@ Partial Class frmPOS
         Me.ColumnHeader4.Text = "Quantity"
         Me.ColumnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.ColumnHeader4.Width = 180
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Stock"
-        Me.ColumnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader3.Width = 180
         '
         'btnAddCart
         '
@@ -981,7 +974,6 @@ Partial Class frmPOS
     Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
-    Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents btnAddCart As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label12 As Label
