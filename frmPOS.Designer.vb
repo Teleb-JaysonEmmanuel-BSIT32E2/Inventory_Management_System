@@ -766,6 +766,7 @@ Partial Class frmPOS
         Me.btnAddCart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnAddCart.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnAddCart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddCart.Enabled = False
         Me.btnAddCart.FillColor = System.Drawing.Color.SeaGreen
         Me.btnAddCart.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.btnAddCart.ForeColor = System.Drawing.Color.White
