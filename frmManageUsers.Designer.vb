@@ -75,6 +75,7 @@ Partial Class frmManageUsers
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel20 = New System.Windows.Forms.Panel()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
@@ -107,7 +108,6 @@ Partial Class frmManageUsers
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -746,24 +746,30 @@ Partial Class frmManageUsers
         '
         Me.ColumnHeader18.Text = "Username"
         Me.ColumnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader18.Width = 250
+        Me.ColumnHeader18.Width = 211
         '
         'ColumnHeader14
         '
         Me.ColumnHeader14.Text = "Transaction"
-        Me.ColumnHeader14.Width = 250
+        Me.ColumnHeader14.Width = 211
         '
         'ColumnHeader15
         '
         Me.ColumnHeader15.Text = "Sales Date"
         Me.ColumnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader15.Width = 210
+        Me.ColumnHeader15.Width = 211
+        '
+        'ColumnHeader19
+        '
+        Me.ColumnHeader19.Text = "Sales Time"
+        Me.ColumnHeader19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnHeader19.Width = 211
         '
         'ColumnHeader16
         '
         Me.ColumnHeader16.Text = "Total Amount"
         Me.ColumnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader16.Width = 250
+        Me.ColumnHeader16.Width = 211
         '
         'Panel20
         '
@@ -1073,12 +1079,6 @@ Partial Class frmManageUsers
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
-        '
-        'ColumnHeader19
-        '
-        Me.ColumnHeader19.Text = "Sales Time"
-        Me.ColumnHeader19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader19.Width = 180
         '
         'frmManageUsers
         '
