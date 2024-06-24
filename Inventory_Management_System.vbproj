@@ -181,6 +181,12 @@
     <Compile Include="frmPOS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPrintReceipt.Designer.vb">
+      <DependentUpon>frmPrintReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRegister.Designer.vb">
       <DependentUpon>frmRegister.vb</DependentUpon>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintReceipt.resx">
+      <DependentUpon>frmPrintReceipt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.vb</DependentUpon>

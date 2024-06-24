@@ -175,8 +175,10 @@ Public Class frmPOS
                     Call insertPayment()
                     MsgBox("Transaction Record Successfully Saved!", MsgBoxStyle.Information)
                     ListView1.Items.Clear()
+                    'If MsgBox("Do you want to print receipt?", vbQuestion + vbYesNo) = vbYes Then
+                    frmPrintReceipt.Show()
+                    End If
                 End If
-            End If
             Call getTransactionNumber()
             Call clearThings()
             btnConfirm.Enabled = False
