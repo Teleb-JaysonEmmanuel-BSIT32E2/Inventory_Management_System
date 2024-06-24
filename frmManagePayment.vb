@@ -18,7 +18,14 @@
         lblAmountChange.Text = Format(Val(change), "0.00")
     End Sub
 
-    Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
+    Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click '
+        If cboPayment.Text = "E-Payment" Or cboPayment.Text = "Card" Then
+            If txtRefNo.Text = "" Then
+                MsgBox("Please provide the Reference Number", MsgBoxStyle.Exclamation)
+                Exit Sub
+            End If
+        End If
+
         If Val(txtAmountPaid.Text) < Val(lblGrandTotal.Text) Then
             MsgBox("Insufficient Balance Payment!", MsgBoxStyle.Critical, "Please try again")
         Else

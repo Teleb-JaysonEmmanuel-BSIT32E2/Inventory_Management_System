@@ -69,6 +69,11 @@ Public Class frmPOS
         Try
             Dim j As String = InputBox("Enter Quantity", "Quantity")
 
+            ' Handle the scenario when the user cancels or closes the input dialog
+            If j = "" Then
+                Return
+            End If
+
             ' Check if input is valid
             If String.IsNullOrEmpty(j) OrElse Val(j) <= 0 Then
                 MsgBox("Please enter a valid number of quantity")
@@ -107,6 +112,7 @@ Public Class frmPOS
             MsgBox("An error occurred frmPOS(AddtoCart): " & ex.Message)
         End Try
     End Sub
+
 
 
     Private Sub replenishMessage()
@@ -175,12 +181,17 @@ Public Class frmPOS
                     Call insertPayment()
                     MsgBox("Transaction Record Successfully Saved!", MsgBoxStyle.Information)
                     ListView1.Items.Clear()
-                    'If MsgBox("Do you want to print receipt?", vbQuestion + vbYesNo) = vbYes Then
+                    frmPrintReceipt.lblNo.Text = lblTransactNo.Text
+                    frmPrintReceipt.lblDate.Text = lblDate.Text
+                    frmPrintReceipt.lblTime.Text = lblTime.Text
+                    frmPrintReceipt.lblCashierName.Text = lblUsername.Text
+                    frmPrintReceipt.lblTotal.Text = lblGrandTotal.Text
                     frmPrintReceipt.Show()
-                    End If
+                End If
                 End If
             Call getTransactionNumber()
             Call clearThings()
+            btnAddCart.Enabled = False
             btnConfirm.Enabled = False
         Catch ex As Exception
             MsgBox("An error occurred frmPOS(btnConfirm): " & ex.Message)
