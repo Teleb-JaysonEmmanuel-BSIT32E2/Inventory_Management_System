@@ -26,7 +26,7 @@ Public Class frmRegister
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         If txtUsername.Text = "" Or txtPassword.Text = "" Or txtConfirmPassword.Text = "" Or cboRole.Text = "" Then
-            MsgBox("Make sure you filled out completely the fields", MsgBoxStyle.Information, "Missing Input")
+            MsgBox("Please Fill out the Fields", MsgBoxStyle.Exclamation)
         ElseIf txtPassword.TextLength < 8 Then
             MsgBox("Your password is too weak! Make sure it contains more than 8 characters", MsgBoxStyle.Exclamation, "Password short")
             txtPassword.Focus()

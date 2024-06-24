@@ -94,25 +94,29 @@ Public Class frmManageProducts
 
     Private Sub insertProducts()
         Try
-            sql = "Select ProductName from tblProducts where ProductName = @ProductName"
-            cmd = New OleDbCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
-            dr = cmd.ExecuteReader
-            If dr.Read = True Then
-                MsgBox("ProductName: '" & txtProductName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+            If txtProductName.Text = "" Or txtDescription.Text = "" Or txtSupplierName.Text = "" Or txtStock.Text = "" Or txtPrice.Text = "" Then
+                MsgBox("Please Fill out the Fields", MsgBoxStyle.Exclamation)
             Else
-                sql = "Insert into tblProducts (ProductName, Description, Price, Stock, SupplierID) values (@ProductName, @Description, @Price, @Stock, @SupplierID)"
+                sql = "Select ProductName from tblProducts where ProductName = @ProductName"
                 cmd = New OleDbCommand(sql, cn)
-                With cmd
-                    .Parameters.AddWithValue("@ProductName", txtProductName.Text)
-                    .Parameters.AddWithValue("@Description", txtDescription.Text)
-                    .Parameters.AddWithValue("@Price", Convert.ToDecimal(txtPrice.Text))
-                    .Parameters.AddWithValue("@Stock", Convert.ToInt32(txtStock.Text))
-                    .Parameters.AddWithValue("@SupplierID", Convert.ToInt32(lblSupplierID.Text))
-                    .ExecuteNonQuery()
-                End With
-                MsgBox("Successfully created!", MsgBoxStyle.Information)
-                Call ActivityLogs("Insert Product Info", txtProductName.Text)
+                cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
+                dr = cmd.ExecuteReader
+                If dr.Read = True Then
+                    MsgBox("ProductName: '" & txtProductName.Text & "' Already Exist", MsgBoxStyle.Exclamation)
+                Else
+                    sql = "Insert into tblProducts (ProductName, Description, Price, Stock, SupplierID) values (@ProductName, @Description, @Price, @Stock, @SupplierID)"
+                    cmd = New OleDbCommand(sql, cn)
+                    With cmd
+                        .Parameters.AddWithValue("@ProductName", txtProductName.Text)
+                        .Parameters.AddWithValue("@Description", txtDescription.Text)
+                        .Parameters.AddWithValue("@Price", Convert.ToDecimal(txtPrice.Text))
+                        .Parameters.AddWithValue("@Stock", Convert.ToInt32(txtStock.Text))
+                        .Parameters.AddWithValue("@SupplierID", Convert.ToInt32(lblSupplierID.Text))
+                        .ExecuteNonQuery()
+                    End With
+                    MsgBox("Successfully created!", MsgBoxStyle.Information)
+                    Call ActivityLogs("Insert Product Info", txtProductName.Text)
+                End If
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageProducts(insertProducts): " & ex.Message)
@@ -257,11 +261,8 @@ Public Class frmManageProducts
                 .Parameters.AddWithValue("@Username", frmDashboard.lblUsername.Text)
                 .Parameters.AddWithValue("@Activity", activity)
                 .Parameters.AddWithValue("@Details", details)
-                '.Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
-                .Parameters.AddWithValue("@ActivityTime", Now.ToLongTimeString)
-                '.Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
-                .Parameters.AddWithValue("@ActivityDate", Now.ToLongDateString)
-
+                .Parameters.AddWithValue("@ActivityTime", DateTime.Now.ToString("hh:mm tt"))
+                .Parameters.AddWithValue("@ActivityDate", DateTime.Now.ToString("yyyy-MM-dd"))
                 .ExecuteNonQuery()
             End With
         Catch ex As Exception
