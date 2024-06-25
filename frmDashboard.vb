@@ -31,12 +31,16 @@ Public Class frmDashboard
             If count > 0 Then
                 picNotif.Visible = True
                 lblNotif.Visible = True
-                lblNotif.Text = count
+                If count > 9 Then
+                    lblNotif.Location = New System.Drawing.Point(60, 33)
+                    lblNotif.Text = count
+                Else
+                    lblNotif.Location = New System.Drawing.Point(64, 33)
+                    lblNotif.Text = count
+                End If
             Else
                 picNotif.Visible = False
                 lblNotif.Visible = False
-                ' Optionally, set label text to indicate no notifications (e.g., "0")
-                ' lblNotif.Text = "0"
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmDashboard(NotifNumber): " & ex.Message)
@@ -47,21 +51,6 @@ Public Class frmDashboard
             End If
         End Try
     End Sub
-
-    'Private Sub getMessageCount()
-    '    Try
-    '        sql = "Select COUNT(ReplenishMessage) from tblMessage where Status = 'Unread'"
-    '        cmd = New OleDbCommand(sql, cn)
-    '        dr = cmd.ExecuteReader
-    '        If dr.Read = True Then
-    '            lblNotif.Text = Val(dr(0))
-    '        Else
-    '            lblNotif.Text = 0
-    '        End If
-    '    Catch ex As Exception
-    '        MsgBox("An error occurred frmDashboard(NotifNumber): " & ex.Message)
-    '    End Try
-    'End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         frmLogin.txtUsername.Text = ""
