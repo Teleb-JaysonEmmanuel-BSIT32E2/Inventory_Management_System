@@ -43,48 +43,39 @@ Public Class frmLogin
                 MsgBox("Make sure you filled out completely the fields", MsgBoxStyle.Information, "Missing Input")
                 txtUsername.Focus()
             Else
-                sql = "Select Username, Password from tblUser where Username = @Username and Password = @Password"
+                sql = "Select Username, Password, Status from tblUser where Username = @Username and Password = @Password"
                 cmd = New OleDbCommand(sql, cn)
                 cmd.Parameters.AddWithValue("@Username", txtUsername.Text)
                 cmd.Parameters.AddWithValue("@Password", txtPassword.Text)
-                dr = cmd.ExecuteReader
-                If dr.Read = True Then
-                    MsgBox("Logging In!", MsgBoxStyle.Information)
-                    Call ActivityLogs()
-                    If lblRole.Text = "Cashier" Then
-                        frmPOS.lblUsername.Text = Me.txtUsername.Text
-                        frmPOS.Show()
-                        Me.Hide()
-                    ElseIf lblRole.Text = "Admin" Then
-                        frmDashboard.lblUsername.Text = Me.txtUsername.Text
-                        frmDashboard.lblRole.Text = Me.lblRole.Text
-                        frmDashboard.Show()
-                        Me.Hide()
+                dr = cmd.ExecuteReader()
+
+                If dr.Read() Then
+                    Dim status As String = dr("Status").ToString()
+                    If status = "Active" Then
+                        MsgBox("Logging In!", MsgBoxStyle.Information)
+                        Call ActivityLogs()
+                        If lblRole.Text = "Cashier" Then
+                            frmPOS.lblUsername.Text = Me.txtUsername.Text
+                            frmPOS.Show()
+                            Me.Hide()
+                        ElseIf lblRole.Text = "Admin" Then
+                            frmDashboard.lblUsername.Text = Me.txtUsername.Text
+                            frmDashboard.lblRole.Text = Me.lblRole.Text
+                            frmDashboard.Show()
+                            Me.Hide()
+                        End If
+                    ElseIf status = "Inactive" Then
+                        MsgBox("Wait for the admin to approve your account", vbExclamation, "Account Inactive")
                     End If
                 Else
                     MsgBox("Your username or password are incorrect", vbExclamation, "Invalid credentials")
                 End If
-                'sql = "Select Username, Password from tblUser where Username = @Username and Password = @Password"
-                'cmd = New OleDbCommand(sql, cn)
-                'cmd.Parameters.AddWithValue("@Username", txtUsername.Text)
-                'cmd.Parameters.AddWithValue("@Password", txtPassword.Text)
-                'dr = cmd.ExecuteReader
-                'If dr.Read = True Then
-                '    MsgBox("Logging In!", MsgBoxStyle.Information)
-                '    If lblRole.Text = "Cashier" Then
-                '        frmPOSCashier.Show()
-                '        Me.Hide()
-                '    Else
-                '        frmDashboard.Show()
-                '        Me.Hide()
-                '    End If
-                'Else
-                '    MsgBox("Account Credentials Invalid", MsgBoxStyle.Exclamation)
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmLogin(btnLogin): " & ex.Message)
         End Try
     End Sub
+
 
     Private Sub ActivityLogs()
         Try

@@ -25,7 +25,9 @@ Public Class frmNotification
 
             Do While dr.Read()
                 x = New ListViewItem(dr("ReplenishMessage").ToString())
-                x.SubItems.Add(dr("MessageSent").ToString())
+                ' Format the date to only show the date part
+                Dim messageSentDate As DateTime = Convert.ToDateTime(dr("MessageSent"))
+                x.SubItems.Add(messageSentDate.ToString("yyyy-MM-dd"))
                 x.SubItems.Add(dr("Status").ToString())
                 x.SubItems.Add(dr("MessageID").ToString())
                 ListView2.Items.Add(x)
@@ -34,6 +36,7 @@ Public Class frmNotification
             MsgBox("An error occurred frmNotification(ListViewLoading): " & ex.Message)
         End Try
     End Sub
+
     Private Sub ListView2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView2.SelectedIndexChanged
         If ListView2.SelectedItems.Count > 0 Then
             frmMessage.txtMessage.Text = ListView2.SelectedItems(0).SubItems(0).Text
