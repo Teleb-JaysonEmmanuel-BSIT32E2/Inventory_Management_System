@@ -126,6 +126,7 @@ Public Class frmPOS
                 .ExecuteNonQuery()
             End With
             MsgBox("Sending a Replenishment Message, Product might be out of stock or stock is less than 10", MsgBoxStyle.Information)
+            Call frmDashboard.getMessCount()
         Catch ex As Exception
             MsgBox("An error occurred frmPOS(replenishMessage): " & ex.Message)
         End Try

@@ -143,12 +143,13 @@ Public Class frmManageUsers
 
     Private Sub insertUser()
         Try
-            sql = "INSERT INTO tblUser ([Username], [Password], [Role]) VALUES (@Username, @Password, @Role)"
+            sql = "INSERT INTO tblUser ([Username], [Password], [Role], Status) VALUES (@Username, @Password, @Role, @Status)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@Username", txtUsername.Text)
                 .Parameters.AddWithValue("@Password", txtPassword.Text)
                 .Parameters.AddWithValue("@Role", cboRole.Text)
+                .Parameters.AddWithValue("@Status", "Active")
                 .ExecuteNonQuery()
             End With
             MsgBox("Successfully created!", MsgBoxStyle.Information)
@@ -159,12 +160,13 @@ Public Class frmManageUsers
 
     Private Sub updateUser()
         Try
-            sql = "UPDATE tblUser SET [Username] = @Username, [Password] = @Password, [Role] = @Role WHERE UserID = @UserID"
+            sql = "UPDATE tblUser SET [Username] = @Username, [Password] = @Password, [Role] = @Role, Status = @Status WHERE UserID = @UserID"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@Username", txtUsername.Text)
                 .Parameters.AddWithValue("@Password", txtPassword.Text)
                 .Parameters.AddWithValue("@Role", cboRole.Text)
+                .Parameters.AddWithValue("@Status", lblStatus.Text)
                 .Parameters.AddWithValue("@UserID", Convert.ToInt32(lblUserID.Text))
                 .ExecuteNonQuery()
             End With
@@ -207,7 +209,7 @@ Public Class frmManageUsers
 
     Private Sub lblUserID_TextChanged(sender As Object, e As EventArgs) Handles lblUserID.TextChanged
         Try
-            sql = "Select Username, Password, Role, UserID from tblUser where UserID = @UserID"
+            sql = "Select Username, Password, Role, Status, UserID from tblUser where UserID = @UserID"
             cmd = New OleDbCommand(sql, cn)
             cmd.Parameters.AddWithValue("@UserID", lblUserID.Text)
             dr = cmd.ExecuteReader
@@ -215,6 +217,7 @@ Public Class frmManageUsers
                 txtUsername.Text = dr(0).ToString()
                 txtPassword.Text = dr(1).ToString()
                 cboRole.Text = dr(2).ToString()
+                lblStatus.Text = dr(3).ToString()
             End If
         Catch ex As Exception
             MsgBox("An error occurred frmManageUser(lblUserID_TextChanged): " & ex.Message)

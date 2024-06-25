@@ -57,15 +57,17 @@ Public Class frmRegister
 
     Private Sub SaveAccount()
         Try
-            sql = "Insert into tblUser (Username, [Password], [Role]) values (@Username, @Password, @Role)"
+            sql = "Insert into tblUser (Username, [Password], [Role], Status) values (@Username, @Password, @Role, @Status)"
             cmd = New OleDbCommand(sql, cn)
             With cmd
                 .Parameters.AddWithValue("@Username", txtUsername.Text)
                 .Parameters.AddWithValue("@Password", txtPassword.Text)
                 .Parameters.AddWithValue("@Role", cboRole.Text)
+                .Parameters.AddWithValue("@Status", "Inactive")
                 .ExecuteNonQuery()
             End With
             MsgBox("Account Recorded!", MsgBoxStyle.Information)
+            MsgBox("Please Wait for the Admin to Approve your Account", MsgBoxStyle.Information)
             frmLogin.Show()
             Me.Close()
         Catch ex As Exception
