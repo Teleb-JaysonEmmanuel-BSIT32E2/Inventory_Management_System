@@ -51,13 +51,10 @@ Public Class frmManageUsers
                 Dim activityTime As String = dr("ActivityTime").ToString()
                 x.SubItems.Add(DateTime.Parse(activityTime).ToString("hh:mm tt"))
 
-                'x.SubItems.Add(dr("ActivityTime").ToString())
-
                 'format ActivityDate
                 Dim activityDate As String = dr("ActivityDate").ToString()
                 x.SubItems.Add(DateTime.Parse(activityDate).ToString("yyyy-MM-dd"))
 
-                'x.SubItems.Add(dr("ActivityDate").ToString())
                 x.SubItems.Add(dr("ActivityID").ToString())
                 ListView3.Items.Add(x)
             Loop

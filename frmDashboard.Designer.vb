@@ -351,13 +351,14 @@ Partial Class frmDashboard
         Me.lblNotif.AutoSize = True
         Me.lblNotif.BackColor = System.Drawing.Color.Red
         Me.lblNotif.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblNotif.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNotif.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNotif.ForeColor = System.Drawing.Color.White
-        Me.lblNotif.Location = New System.Drawing.Point(63, 32)
+        Me.lblNotif.Location = New System.Drawing.Point(64, 33)
         Me.lblNotif.Name = "lblNotif"
-        Me.lblNotif.Size = New System.Drawing.Size(19, 18)
+        Me.lblNotif.Size = New System.Drawing.Size(16, 16)
         Me.lblNotif.TabIndex = 4
         Me.lblNotif.Text = "1"
+        Me.lblNotif.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'picNotif
         '

@@ -108,6 +108,8 @@ Partial Class frmManageUsers
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStatus = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.lblStatus = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -186,7 +188,8 @@ Partial Class frmManageUsers
         '
         Me.Guna2Panel2.BorderColor = System.Drawing.Color.LightGray
         Me.Guna2Panel2.BorderThickness = 1
-        Me.Guna2Panel2.Controls.Add(Me.lblUserID)
+        Me.Guna2Panel2.Controls.Add(Me.lblStatus)
+        Me.Guna2Panel2.Controls.Add(Me.Label8)
         Me.Guna2Panel2.Controls.Add(Me.cboRole)
         Me.Guna2Panel2.Controls.Add(Me.Label7)
         Me.Guna2Panel2.Controls.Add(Me.txtUsername)
@@ -203,7 +206,7 @@ Partial Class frmManageUsers
         'lblUserID
         '
         Me.lblUserID.AutoSize = True
-        Me.lblUserID.Location = New System.Drawing.Point(955, 66)
+        Me.lblUserID.Location = New System.Drawing.Point(596, 24)
         Me.lblUserID.Name = "lblUserID"
         Me.lblUserID.Size = New System.Drawing.Size(39, 13)
         Me.lblUserID.TabIndex = 60
@@ -316,6 +319,7 @@ Partial Class frmManageUsers
         'Panel30
         '
         Me.Panel30.BackColor = System.Drawing.Color.White
+        Me.Panel30.Controls.Add(Me.lblUserID)
         Me.Panel30.Controls.Add(Me.Panel1)
         Me.Panel30.Controls.Add(Me.Panel2)
         Me.Panel30.Controls.Add(Me.Panel3)
@@ -1080,6 +1084,34 @@ Partial Class frmManageUsers
         Me.cboStatus.Size = New System.Drawing.Size(255, 36)
         Me.cboStatus.TabIndex = 57
         '
+        'lblStatus
+        '
+        Me.lblStatus.BackColor = System.Drawing.Color.Transparent
+        Me.lblStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.lblStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lblStatus.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblStatus.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.lblStatus.ForeColor = System.Drawing.Color.Black
+        Me.lblStatus.ItemHeight = 30
+        Me.lblStatus.Items.AddRange(New Object() {"Active", "Inactive"})
+        Me.lblStatus.Location = New System.Drawing.Point(10, 116)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(262, 36)
+        Me.lblStatus.TabIndex = 61
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.SandyBrown
+        Me.Label8.Location = New System.Drawing.Point(9, 93)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(58, 19)
+        Me.Label8.TabIndex = 60
+        Me.Label8.Text = "Status"
+        '
         'frmManageUsers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1095,6 +1127,7 @@ Partial Class frmManageUsers
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
         Me.Panel30.ResumeLayout(False)
+        Me.Panel30.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
@@ -1196,4 +1229,6 @@ Partial Class frmManageUsers
     Friend WithEvents ColumnHeader16 As ColumnHeader
     Friend WithEvents ColumnHeader18 As ColumnHeader
     Friend WithEvents ColumnHeader19 As ColumnHeader
+    Friend WithEvents lblStatus As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Label8 As Label
 End Class
