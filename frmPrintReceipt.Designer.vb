@@ -128,13 +128,13 @@ Partial Class frmPrintReceipt
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Arial", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(190, 9)
+        Me.Label5.Location = New System.Drawing.Point(112, 7)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(251, 26)
+        Me.Label5.Size = New System.Drawing.Size(422, 32)
         Me.Label5.TabIndex = 82
-        Me.Label5.Text = "Group X Sari-Sari Store"
+        Me.Label5.Text = "Group Cherries' Sari-Sari Store"
         '
         'Label3
         '
@@ -396,11 +396,11 @@ Partial Class frmPrintReceipt
         '
         Me.lblCashierName.AutoSize = True
         Me.lblCashierName.BackColor = System.Drawing.Color.Transparent
-        Me.lblCashierName.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCashierName.Font = New System.Drawing.Font("Arial", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCashierName.ForeColor = System.Drawing.Color.Black
-        Me.lblCashierName.Location = New System.Drawing.Point(45, 535)
+        Me.lblCashierName.Location = New System.Drawing.Point(13, 512)
         Me.lblCashierName.Name = "lblCashierName"
-        Me.lblCashierName.Size = New System.Drawing.Size(118, 18)
+        Me.lblCashierName.Size = New System.Drawing.Size(184, 32)
         Me.lblCashierName.TabIndex = 103
         Me.lblCashierName.Text = "XXXXXXXXXX"
         Me.lblCashierName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -423,6 +423,9 @@ Partial Class frmPrintReceipt
         Me.btnPrint.Size = New System.Drawing.Size(131, 40)
         Me.btnPrint.TabIndex = 104
         Me.btnPrint.Text = "Print"
+        '
+        'PrintDocument1
+        '
         '
         'PrintPreviewDialog1
         '
