@@ -130,11 +130,11 @@ Partial Class frmPrintReceipt
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Arial", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(112, 7)
+        Me.Label5.Location = New System.Drawing.Point(147, 7)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(422, 32)
+        Me.Label5.Size = New System.Drawing.Size(331, 32)
         Me.Label5.TabIndex = 82
-        Me.Label5.Text = "Group Cherries' Sari-Sari Store"
+        Me.Label5.Text = "Cherries' Sari-Sari Store"
         '
         'Label3
         '
@@ -338,11 +338,11 @@ Partial Class frmPrintReceipt
         Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(424, 485)
+        Me.Label15.Location = New System.Drawing.Point(373, 485)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(52, 19)
+        Me.Label15.Size = New System.Drawing.Size(103, 19)
         Me.Label15.TabIndex = 97
-        Me.Label15.Text = "Total:"
+        Me.Label15.Text = "Grand Total:"
         '
         'lblVAT
         '
