@@ -274,6 +274,7 @@ Public Class frmPOS
         txtDescription.Clear()
         txtPrice.Clear()
         txtStock.Clear()
+        ListView1.Items.Clear()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

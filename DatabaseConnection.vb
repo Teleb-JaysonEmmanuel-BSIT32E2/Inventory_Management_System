@@ -9,7 +9,6 @@ Module DatabaseConnection
     Public Sub connection()
         cn.Close()
         cn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & Application.StartupPath & "\dbInventory.accdb"
-        MsgBox("Connected")
         cn.Open()
     End Sub
 End Module
