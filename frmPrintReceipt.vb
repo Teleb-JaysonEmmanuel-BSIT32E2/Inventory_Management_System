@@ -4,6 +4,7 @@ Imports System.Drawing.Printing
 Public Class frmPrintReceipt
     Private Sub frmPrintReceipt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblVAT.Text = Val(lblTotal.Text) * 0.12
+        frmPOS.lblUsername.Text = lblCashierName.Text
         Call loadReceipt()
     End Sub
 
